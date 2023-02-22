@@ -1,4 +1,0 @@
-# UI EXCERCISES
-
-## NAME : RUBESH U 
-
