@@ -88,18 +88,12 @@
 /* CARD STYLES AND SPACING */
 .outfitCardLeft,.outfitCardLeftMiddle,.outfitCardRightMiddle,.outfitCardRight{
     position: absolute;
-    background-color: #24252a;;
-}
-.outfitCardLeft,.outfitCardRight{
+    background-color: #24252a;
     height: 420px;
     width: 320px;
 }
 .outfitCardLeft{
     left: 0;
-}
-.outfitCardLeftMiddle,.outfitCardRightMiddle{
-    height: 420px;
-    width: 320px;
 }
 .outfitCardLeftMiddle{
     left: 377px;
