@@ -64,6 +64,34 @@ year = date.slice(0,4);
 formatedDate = day+"/"+month+"/"+year;
 console.log(formatedDate);
 
+// celcius to faranheit 
+function celciusToFaranheit(celcius) {
+    return (celcius*1.8)+32;
+}
+console.log(celciusToFaranheit(45));
+
+// finding average of numbers 
+function average(arr){
+    total = 0;
+    len = arr.length;
+    for(i=0;i<len;i++){
+        total+=arr[i];
+    }
+    return total/len;
+}
+arr = [1,2,3,4,5,6,7,8,9,10]
+console.log(average(arr));
+
+// function to reverse a string
+function reverse(str){
+    reversedStr = "";
+    for(i=str.length-1;i>=0;i--){
+        reversedStr+=str[i];
+    }
+    return reversedStr;
+}
+console.log(reverse("Hello World!"));
+
 
 
 
