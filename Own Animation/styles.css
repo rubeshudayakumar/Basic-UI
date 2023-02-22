@@ -1,0 +1,47 @@
+body{
+    margin-left: 575px;
+    margin-top: 350px;
+    width: 100vh;
+    height: 100vh;
+    background-color: black;
+}
+.bigCircle{
+    position: relative;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background-color: white;
+}
+.blockTB{
+    transform: rotate(90deg);
+    margin-right: 450px;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    left: 225px;
+    display: inline-block;
+    animation: blockTB 3s ease-in infinite alternate-reverse;
+}
+/* .blockLR{
+
+} */
+
+@keyframes blockTB {
+    0%{
+        top: 0px;
+    }
+    25%{
+        top: 125px;
+    }
+    50%{
+        top: 250px;
+    }
+    75%{
+        top: 375px;
+    }
+    100%{
+        top: 450px;
+    }
+}
