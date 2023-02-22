@@ -48,7 +48,7 @@
     padding-bottom: 20px;
     position: absolute;
     right: 0;
-    top: 60px;
+    top: 72px;
     width: 5%;
 }
 .dropDown{
@@ -86,33 +86,29 @@
 }
 
 /* CARD STYLES AND SPACING */
-.outfitCard1{
+.outfitCardLeft,.outfitCardLeftMiddle,.outfitCardRightMiddle,.outfitCardRight{
     position: absolute;
+    background-color: #24252a;;
+}
+.outfitCardLeft,.outfitCardRight{
+    height: 420px;
+    width: 320px;
+}
+.outfitCardLeft{
     left: 0;
-    height: 420px;
-    width: 320px;
-    background-color: #24252a;
 }
-.outfitCard2{
-    position: absolute;
+.outfitCardLeftMiddle,.outfitCardRightMiddle{
     height: 420px;
     width: 320px;
+}
+.outfitCardLeftMiddle{
     left: 377px;
-    background-color: #24252a;
 }
-.outfitCard3{
-    position: absolute;
-    height: 420px;
-    width: 320px;
+.outfitCardRightMiddle{
     right: 377px;
-    background-color: #24252a;
 }
-.outfitCard4{
-    position: absolute;
-    height: 420px;
-    width: 320px;
+.outfitCardRight{
     right: 0px;
-    background-color: #24252a;
 }
 .outfitCard{
     position: relative;
@@ -126,6 +122,7 @@
     right: 19px;
     top: 19px;
     font-size: 22px;
+    cursor: pointer;
 }
 .outfitCard img{
     position: absolute;
@@ -135,48 +132,48 @@
 }
 .dressImage{
     width: 55%;
-    object-fit: fill;
 }
 .solid{
     display: none;
 }
 .outer:hover ~ .solid{
     display: inline-block;
+    cursor: pointer;
 }
 .outer:hover {
     display: none;
 }
 .dressSize{
-    height: 50px;
-    width: 50px;
-    padding-top: 10px;
-    font-size: 25px;
-    background-color: #87b181;
+    height: 55px;
+    width: 55px;
+    padding-top: 14px;
+    font-size: 22px;
+    background-color: rgb(135, 177, 129);
     border-radius: 50%;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     position: absolute;
-    right: 19px;
-    bottom: -23px;
+    right: 25px;
+    bottom: -25px;
 }
 .dressPrice{
     color: #979797;
     font-size: 130%;
     padding-top: 5px;
 }
-.outfitCard1 img{
+.outfitCardLeft img{
     width: 55%;
     margin-left: 17px;
 }
-.outfitCard2 img{
+.outfitCardLeftMiddle img{
     width: 55%;
     margin-left: 17px;
 }
-.outfitCard3 img{
+.outfitCardRightMiddle img{
     margin-left: -10px;
     width: 75%;
 }
-.outfitCard4 img{
+.outfitCardRight img{
     width: 65%;
 }
 .outfitSection button{
@@ -193,9 +190,10 @@
 button:hover{
     background-color: #87b181;
     color: black;
+    cursor: pointer;
 }
 
-.outfitSection h1{
+.outfitSection h3{
     padding-top: 15px;
     color: white;
     font-size: 150%;
@@ -218,9 +216,9 @@ button:hover{
     margin: 35px;
 }
 .footer li{
-    padding: 50px;
-    font-size: 150%;
     display: inline;
+    padding: 50px 28px;
+    font-size: 150%;
 }
 .outfitContainer:nth-child(2){
     padding-bottom: 800px;
