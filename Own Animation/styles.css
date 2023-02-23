@@ -1,3 +1,4 @@
+/* OUTER CIRCLE STYLES */
 body{
     margin-left: 575px;
     margin-top: 350px;
@@ -12,6 +13,8 @@ body{
     border-radius: 50%;
     background-color: white;
 }
+
+/* STYLES FOR EIGHT SMALL CIRCLES */
 .commonBlock{
     height: 50px;
     width: 50px;
@@ -24,53 +27,46 @@ body{
     transform: rotate(90deg);
     left: 225px;
     animation: blockTB 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 0.45s; */
 }
 .blockBT{
     transform: rotate(180deg);
     left: 225px;
     bottom: 0px;
     animation: blockBT 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 1.25s; */
 }
 .blockLR{
     top: 220px;
     animation: blockLR 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 1.75; */
 }
 .blockRL{
     top: 220px;
     right: 0px;
     animation: blockRL 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 0.75s; */
 }
 .blockTR{
     transform: rotate(45deg);
     top: 65px;
     right: 65px;
     animation: blockTR 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 0.5s; */
 }
 .blockTL{
     transform: rotate(-45deg);
     top: 65px;
     left: 65px;
     animation: blockTL 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 2s; */
 }
 .blockBL{
     left: 65px;
     bottom: 65px;
     animation: blockBL 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 1.5s; */
 }
 .blockBR{
     right: 65px;
     bottom: 65px;
     animation: blockBR 1s ease-in infinite alternate-reverse;
-    /* animation-delay: 1s; */
 }
 
+/* ANIMATION TIMING FUNCTIONS FOR EIGHT CIRCLES */
 @keyframes blockBR {
     0%{
         right: 65px;
