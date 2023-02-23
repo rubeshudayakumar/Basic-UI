@@ -4,6 +4,7 @@
     color: white;
     padding: 0;
     box-sizing: border-box;
+    margin: 0px;
 }
 body{
     background-color: black;
@@ -11,36 +12,43 @@ body{
 
 /* MAIL SECTION STYLES*/
 .mailSection{
-    width: 80%;
+    width: 74%;
     margin: 0 auto;
     display: flex;
     justify-content: end;
     font-size: 2.5em;
     font-weight: 900;
+    height: 163px;
+    align-items: center;
+}
+.mailSection h6{
+    letter-spacing: 0.5px;
+    font-size: 0.6em;
 }
 
 /* NAME SECTION STYLES */
 .nameSection{
-    margin-top: 120px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 485px;
+    width: 74%;
+    margin: 0 auto;
 }
 .name{
     font-size: 150px;
     margin: 0;
 }
 .name span{
-    font-weight: 100;
+    font-weight: 300;
+    letter-spacing: 3px;
 }
 .role span{
     color: #4b90e2;
 }
 .role{
-    font-size: 50px;
-    margin-top: 20px;
-    margin-bottom: 170px;
+    font-size: 47px;
 }
 .mobileEmail{
     display: none;
@@ -53,10 +61,10 @@ body{
     width: 80%;
     margin: 0 auto;
     justify-content: space-between;
+    row-gap: 50px;
 }
 .productsContainer img{
     width: 427px;
-    padding-bottom: 47px;
 }
 
 
@@ -71,7 +79,7 @@ body{
 }
 .logoTitle{
     margin: 120px;
-    font-size: 50px;
+    font-size: 47px;
     color: #CECECE;
     font-weight: 700;
 }
@@ -104,11 +112,11 @@ body{
     width: 400px;
     justify-content: space-around;
     align-items: center;
-    height: 300px;
+    height: 240px;
 }
 .breakLines{
-    height: 250px;
-    width: 100%;
+    height: 27px;
+    width: 75%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -116,48 +124,53 @@ body{
 .shortLine{
     background-color: white;
     height: 2px;
-    width: 33px;
+    width: 45px;
     margin-right: 30px;
 }
 .longLine{
     background-color: white;
     height: 2px;
-    width: 190px;
-   
+    width: 210px;
 }
 
 /* STYLES FOR SMALLER SCREENS */
-@media only screen and (max-width: 1135px){
+@media only screen and (max-width: 1163px){
     .mailSection{
         color: black;
-        margin-top: 400px;
+        margin-top: 200px;
         visibility: hidden;
     }
     .mobileEmail{
         display: inline-block;
         margin: 0px;
         margin-bottom: 200px;
-        font-size: 1.98em;
+        font-size: 2vh;
         font-weight: 900;
         text-align: center;
-        margin-top: 16px;
+    }
+    .name{
+        font-size: 10vh;
     }
     .role{
-        font-size: 75px;
+        font-size: 5vh;
         margin: 0;
     }
     .productsContainer{
         justify-content: center;
     }
-    .productsContainer img{
-        width: 100%;
-    }
     .logoContainer img{
-        padding: 100px;
+        padding: 30px;
     }
 }
-@media only screen and (max-width: 700px) {
-    .mailSection{
-        font-size: 70px;
+@media only screen and (max-width: 768px) {
+    .name{
+        font-size: 7vh;
+    }
+    .role{
+        font-size: 3.5vh;
+    }
+    .mobileEmail{
+        font-size: 1.5vh;
     }
 }
+
