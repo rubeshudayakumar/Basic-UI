@@ -7,7 +7,45 @@
 
 /* HEADER STYLES */
 .header{
+    padding: 0px 35px;
+    height: 75px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    align-items: center;
+    background-color: #A9E087;
+    font-size: 20px;
+}
+
+/* STYLES FOR CALCULATION AREA */
+.calculationArea{
+    height: calc(100vh - 75px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+/* STYLES FOR CHOOSE A SHAPE SECTION */
+.chooseShapeSection{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.chooseShapeSection h2{
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+}
+.shapeContainer{
+    display: flex;
+}
+.circle{
+    height: 150px;
+    width: 150px;
+    background-color: #00987D;
+    border-radius: 50%;
 }
