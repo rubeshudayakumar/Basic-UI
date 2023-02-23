@@ -95,7 +95,10 @@ body{
     width: 100%;
 }
 .logoContainer img{
-    width: 150px;
+    width: 120px;
+}
+#adidas{
+    width: 100px;
 }
 
 /* FOOTER SECTION STYLES */
@@ -115,6 +118,9 @@ body{
     justify-content: space-around;
     align-items: center;
     height: 240px;
+}
+.iconsSection img{
+    height: 80px;
 }
 .breakLines{
     height: 27px;
