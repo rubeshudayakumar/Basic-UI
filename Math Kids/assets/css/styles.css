@@ -30,7 +30,7 @@
 .chooseShapeSection{
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 600px;
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
@@ -41,11 +41,55 @@
     font-weight: 300;
 }
 .shapeContainer{
+    margin: 0 auto;
     display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+}
+.circle,.triangle,.square{
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
 .circle{
-    height: 150px;
-    width: 150px;
+    height: 170px;
+    width: 170px;
     background-color: #00987D;
     border-radius: 50%;
+    cursor: pointer;
+}
+.triangle{
+    margin-top: 10px;
+    width: 0; 
+    height: 0; 
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;  
+    border-bottom: 160px solid #FFABDC;
+    cursor: pointer;
+}
+.square{
+    height: 170px;
+    width: 170px;
+    background-color: #E0E0E0;
+    cursor: pointer;
+}
+.tickMark{
+    position: absolute;
+    height: 25px;
+    width: 50px;
+    transform: rotate(-40deg );
+    border: 3px solid white;
+    border-top: none;
+    border-right: none;
+}
+.chooseShapeSection button{
+    height: 60px;
+    width: 220px;
+    background-color: black;
+    border: 2px solid white;
+    padding: 15px 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
 }
