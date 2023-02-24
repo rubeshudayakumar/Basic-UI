@@ -13,7 +13,7 @@ var shapes = [
         name : "circle",
         side : 0.0,
         className : "circle",
-        isTicked : false,
+        isTicked : true,
         result : 0.0,
         areaOfCircle: (r) => {
             return (3.14*r*r);
@@ -27,7 +27,7 @@ var shapes = [
         name : "triangle",
         side : 0.0,
         className : "triangle",
-        isTicked : true,
+        isTicked : false,
         result : 0.0,
         areaOfTriangle : (s) => {
             return (s*s)/2;
@@ -100,33 +100,50 @@ shapesList.forEach((val,i) => {
     });
 });
 
-// // code for triggering next button click event
-// document.querySelector(".next-button").addEventListener("click",(event)=>{
-//     let currentSection =  document.querySelector(".calculation-area");
-//     currentSection.removeChild(currentSection.childNodes[3]);
+// code for triggering next button click event
+document.querySelector(".next-button").addEventListener("click",(event)=>{
 
-//     // changing the input section based on the shape name 
-//     if(shapeName=="circle"){
-//         document.querySelector(".circle-input-section").style.display = "flex";
-//     }else if(shapeName=="triangle"){
-//         document.querySelector(".triangle-input-section").style.display = "flex";
-//     }else{
-//         document.querySelector(".square-input-section").style.display = "flex";
-//     }
-//     //code for the calculation of the result 
+    //removing the select shape section
+    let currentSection =  document.querySelector(".calculation-area");
+    currentSection.removeChild(currentSection.childNodes[3]);
 
-//     var  calculateButtons = document.querySelectorAll(".calculate-button");
+    //creating step 2 (calculation section)
+    let calculationArea = document.querySelector(".calculation-area");
+    let inputSectionElement = document.createElement("section");
+    let inputSection = calculationArea.appendChild(inputSectionElement);
+    inputSection.classList.add("input-section");
 
-//     console.log(calculateButtons);
+    // creating input instruction
+    let createElementInstruction = document.createElement("h2");
+    createElementInstruction.innerHTML = shapes[selectedShapeIndex].measurementInstruction;
+    let instruction = inputSection.appendChild(createElementInstruction);
+    instruction.className = "enter-measurement-instruction";
+    
+    // creating a input field
+    let inputField = inputSection.appendChild(document.createElement("input"));
+    inputField.className = "entry-value";
+    inputField.type = "text";
+    
+    // creating calculate button 
+    let calculateBtn = inputSection.appendChild(document.createElement("button"));
+    calculateBtn.className = "calculate-button";
+    calculateBtn.innerHTML = "CALCULATE";  
 
-//     calculateButtons.forEach((btn,i) => {
-//         btn.addEventListener("click",(event) => {
-//             if(i==1){
-//                 [inputValue1,inputValue2] = document.querySelectorAll("input")[i].value.split(" ");
-//             }
-//             console.log(inputValue1+" "+inputValue2);
-//         });
-//     });
-// });
+    // adding click event listener for calculate button
+    document.querySelector(".calculate-button").addEventListener("click",(event) => {
+        shapes[selectedShapeIndex].side = parseFloat(document.querySelector(".entry-value").value);
+        document.querySelector(".calculation-area").innerHTML = "";
+
+        
+
+    });
+
+    
+
+});
+
+
+
+
 
 

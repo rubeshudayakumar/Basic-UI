@@ -103,7 +103,7 @@
 }
 
  /* SHAPE DIMENSTION INPUT SECTION */
-.circle-input-section,.square-input-section,.triangle-input-section{
+.input-section{
     display: flex;
     flex-direction: column;
     height: 400px;
@@ -111,14 +111,8 @@
     justify-content: space-between;
     align-items: center;
     color: white;
-    display: none;
 }
-.triangle-input-section{
-    display: none;
-}
-.square-input-section{
-    display: none;
-}
+
 .enter-measurement-instruction{
     color: white;
     font-size: 50px;
