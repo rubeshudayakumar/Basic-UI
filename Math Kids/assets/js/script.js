@@ -134,12 +134,22 @@ document.querySelector(".next-button").addEventListener("click",(event)=>{
         shapes[selectedShapeIndex].side = parseFloat(document.querySelector(".entry-value").value);
         document.querySelector(".calculation-area").innerHTML = "";
 
+        calculationSection = document.querySelector(".calculation-area").appendChild(document.createElement("section"));
+        calculationSection.classList.add("choose-shape-section"); 
+
+        //creating output shape
+        outputShape = calculationSection.appendChild(document.createElement("div"));   
+        outputShape.classList.add(shapes[selectedShapeIndex].className);
+
+        //creating shape name
         
+        shapeName = calculationSection.appendChild(document.createElement("h2"));
+        shapeName.classList.add("enter-measurement-instruction");
+        shapeName.innerHTML = shapes[selectedShapeIndex].name;
+
+
 
     });
-
-    
-
 });
 
 
