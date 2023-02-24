@@ -152,26 +152,35 @@ body{
         display: inline-block;
         margin: 0px;
         margin-bottom: 200px;
-        font-size: 2vh;
+        font-size: 32px;
         font-weight: 900;
         text-align: center;
     }
     .name{
-        font-size: 10vh;
+        font-size: 120px;
     }
     .role{
-        font-size: 5vh;
+        font-size: 65px;
         margin: 0;
     }
     .productsContainer{
         justify-content: center;
     }
+    .productsContainer img{
+        width: 100%;
+    }
     .logoContainer img{
-        padding: 30px;
+        padding: 80px;
+        width: 50%;
+    }
+    #adidas{
+        width: 50%;
+        padding: 80px;
     }
     .logoTitle{
         font-size: 3vh;
     }
+
 }
 
 /* STYLES FOR MOBILE */
