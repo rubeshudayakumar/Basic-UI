@@ -11,7 +11,7 @@ body{
 }
 
 /* MAIL SECTION STYLES*/
-.mailSection{
+.mail-section{
     width: 74%;
     margin: 0 auto;
     display: flex;
@@ -21,13 +21,13 @@ body{
     height: 163px;
     align-items: center;
 }
-.mailSection h6{
+.mail-section h6{
     letter-spacing: 0.5px;
     font-size: 0.6em;
 }
 
 /* NAME SECTION STYLES */
-.nameSection{
+.name-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,12 +50,12 @@ body{
 .role{
     font-size: 47px;
 }
-.mobileEmail{
+.mobile-email{
     display: none;
 }
 
 /* PRODUCTS SECTION  */
-.productsContainer{
+.products-container{
     display: flex;
     flex-wrap: wrap;
     width: 80%;
@@ -63,13 +63,13 @@ body{
     justify-content: space-between;
     row-gap: 50px;
 }
-.productsContainer img{
+.products-container img{
     width: 427px;
 }
 
 
 /* LOGO SECTION STYLES */
-.logoContainer{
+.logo-container{
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -77,24 +77,24 @@ body{
     align-items: center;
     flex-wrap: wrap;
 }
-.logoTitle{
+.logo-title{
     margin-top: 120px;
     margin-bottom: 120px;
     font-size: 47px;
     color: #CECECE;
     font-weight: 700;
 }
-.logoContainer span{
+.logo-container span{
     color: #B8E985;
 }
-.logoRow{
+.logo-row{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
 }
-.logoContainer img{
+.logo-container img{
     width: 120px;
 }
 #adidas{
@@ -112,30 +112,30 @@ body{
     width: 80%;
     margin-top: 100px;
 }
-.iconsSection{
+.icons-section{
     display: flex;
     width: 400px;
     justify-content: space-around;
     align-items: center;
     height: 240px;
 }
-.iconsSection img{
+.icons-section img{
     height: 80px;
 }
-.breakLines{
+.break-lines{
     height: 27px;
     width: 75%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
-.shortLine{
+.short-line{
     background-color: white;
     height: 2px;
     width: 45px;
     margin-right: 30px;
 }
-.longLine{
+.long-line{
     background-color: white;
     height: 2px;
     width: 210px;
@@ -143,12 +143,12 @@ body{
 
 /* STYLES FOR SMALLER SCREENS */
 @media only screen and (max-width: 1163px){
-    .mailSection{
+    .mail-section{
         color: black;
         margin-top: 200px;
         visibility: hidden;
     }
-    .mobileEmail{
+    .mobile-email{
         display: inline-block;
         margin: 0px;
         margin-bottom: 200px;
@@ -163,13 +163,13 @@ body{
         font-size: 65px;
         margin: 0;
     }
-    .productsContainer{
+    .products-container{
         justify-content: center;
     }
-    .productsContainer img{
+    .products-container img{
         width: 100%;
     }
-    .logoContainer img{
+    .logo-container img{
         padding: 80px;
         width: 50%;
     }
@@ -177,7 +177,7 @@ body{
         width: 50%;
         padding: 80px;
     }
-    .logoTitle{
+    .logo-title{
         font-size: 3vh;
     }
 
@@ -191,11 +191,11 @@ body{
     .role{
         font-size: 3.1vh;
     }
-    .mobileEmail{
+    .mobile-email{
         margin-top: 20px;
         font-size: 1.5vh;
     }
-    .logoTitle{
+    .logo-title{
         font-size: 3vh;
     }
 }
