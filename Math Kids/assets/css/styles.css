@@ -34,10 +34,12 @@
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
+    /* TEMPORARY STYLE FOR JS */
+    /* display: none; */
 }
 .chooseShapeSection h2{
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 300;
 }
 .shapeContainer{
@@ -73,6 +75,7 @@
     background-color: #E0E0E0;
     cursor: pointer;
 }
+
 .tickMark{
     position: absolute;
     height: 25px;
@@ -82,14 +85,25 @@
     border-top: none;
     border-right: none;
 }
-.chooseShapeSection button{
+.alignTick{
+    top: 480px;
+}
+.nextButton,.calculateButton{
     height: 60px;
     width: 220px;
     background-color: black;
     border: 2px solid white;
     padding: 15px 50px;
+    margin-top: 100px;
+    visibility: hidden;
     color: white;
     font-weight: 600;
     font-size: 20px;
     cursor: pointer;
+}
+
+ /* CIRCLE INPUT SECTION */
+.circleInputSection{
+    /* TEMPORARY STYLE FOR JS */
+    display: none;
 }
