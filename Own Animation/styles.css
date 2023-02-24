@@ -6,7 +6,7 @@ body{
     height: 100vh;
     background-color: black;
 }
-.bigCircle{
+.big-circle{
     position: relative;
     height: 500px;
     width: 500px;
@@ -15,7 +15,7 @@ body{
 }
 
 /* STYLES FOR EIGHT SMALL CIRCLES */
-.commonBlock{
+.common-block{
     height: 50px;
     width: 50px;
     background-color: black;
@@ -23,51 +23,51 @@ body{
     position: absolute;
     display: inline-block;
 }
-.blockTB{
+.block-tb{
     transform: rotate(90deg);
     left: 225px;
-    animation: blockTB 1s ease-in infinite alternate-reverse;
+    animation: move-from-top 1s ease-in infinite alternate-reverse;
 }
-.blockBT{
+.block-bt{
     transform: rotate(180deg);
     left: 225px;
     bottom: 0px;
-    animation: blockBT 1s ease-in infinite alternate-reverse;
+    animation: move-from-bottom 1s ease-in infinite alternate-reverse;
 }
-.blockLR{
+.block-lr{
     top: 220px;
-    animation: blockLR 1s ease-in infinite alternate-reverse;
+    animation: move-from-left 1s ease-in infinite alternate-reverse;
 }
-.blockRL{
+.block-rl{
     top: 220px;
     right: 0px;
-    animation: blockRL 1s ease-in infinite alternate-reverse;
+    animation: move-from-right 1s ease-in infinite alternate-reverse;
 }
-.blockTR{
+.block-tr{
     transform: rotate(45deg);
     top: 65px;
     right: 65px;
-    animation: blockTR 1s ease-in infinite alternate-reverse;
+    animation: move-from-top-right 1s ease-in infinite alternate-reverse;
 }
-.blockTL{
+.block-tl{
     transform: rotate(-45deg);
     top: 65px;
     left: 65px;
-    animation: blockTL 1s ease-in infinite alternate-reverse;
+    animation: move-from-top-left 1s ease-in infinite alternate-reverse;
 }
-.blockBL{
+.block-bl{
     left: 65px;
     bottom: 65px;
-    animation: blockBL 1s ease-in infinite alternate-reverse;
+    animation: move-from-bottom-left 1s ease-in infinite alternate-reverse;
 }
-.blockBR{
+.block-br{
     right: 65px;
     bottom: 65px;
-    animation: blockBR 1s ease-in infinite alternate-reverse;
+    animation: move-from-bottom-right 1s ease-in infinite alternate-reverse;
 }
 
 /* ANIMATION TIMING FUNCTIONS FOR EIGHT CIRCLES */
-@keyframes blockBR {
+@keyframes move-from-bottom-right {
     0%{
         right: 65px;
         bottom: 65px;
@@ -90,7 +90,7 @@ body{
     }
 }
 
-@keyframes blockBL {
+@keyframes move-from-bottom-left {
     0%{
         left: 65px;
         bottom: 65px;
@@ -114,7 +114,7 @@ body{
 }
 
 
-@keyframes blockBT {
+@keyframes move-from-bottom {
     0%{
         bottom: 0px;
     }
@@ -132,7 +132,7 @@ body{
     }
 }
 
-@keyframes blockTR {
+@keyframes move-from-top-right {
     0%{
         top: 65px;
         right: 65px;
@@ -155,7 +155,7 @@ body{
     }
 }
 
-@keyframes blockTL {
+@keyframes move-from-top-left {
     0%{
         top: 65px;
         left: 65px;
@@ -178,7 +178,7 @@ body{
     }
 }
 
-@keyframes blockLR {
+@keyframes move-from-left {
     0%{
         left: 0px;
     }
@@ -195,7 +195,7 @@ body{
         left: 450px;
     }
 }
-@keyframes blockRL {
+@keyframes move-from-right {
     0%{
         right: 0px;
     }
@@ -213,7 +213,7 @@ body{
     }
 }
 
-@keyframes blockTB {
+@keyframes move-from-top {
     0%{
         top: 0px;
     }
