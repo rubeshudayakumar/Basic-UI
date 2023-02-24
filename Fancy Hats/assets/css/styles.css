@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 /* BODY BACKGROUND STYLES */
 body{
@@ -13,7 +13,7 @@ body{
     background-size: cover;
 }
 /* WHOLE CONTAINER STYLES */
-.contentContainer{
+.content-container{
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
@@ -22,11 +22,11 @@ body{
 }
 
 /* NAVIGATION SECTION */
-.navSection{
+.nav-section{
     position: relative;
     width: 275px;
 }
-.hamburgerIcon{
+.hamburger-icon{
     display: flex;
     padding: 32px;
     flex-direction: column;
@@ -37,15 +37,15 @@ body{
     width: 100px;
     cursor: pointer;
 }
-.hamburgerIcon span{
+.hamburger-icon span{
     background-color: white;
     height: 2px;
     width: 40px;
 }
-.dropDown ul{
+.drop-down ul{
     list-style: none;
 }
-.dropDown ul{
+.drop-down ul{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -58,77 +58,78 @@ body{
     width: 300px;
     border-radius: 0px 20px 20px 0px;
 }
-.dropDown li{
-    font-size: 120%;
+.drop-down li{
+    font-size: 18.5px;
     padding: 10px 60px;
 }
-.dropDown{
+.drop-down{
     position: absolute;
     left: -300px;
     transition: left 2s;
 }
-.hamburgerIcon:hover ~ .dropDown{
+.hamburger-icon:hover ~ .drop-down{
     left: 0px;
 }
 
-.dropDown:hover{
+.drop-down:hover{
     left: 0px;
 }
 
 /* MIDDLE SECTION */
-.middleSection{
+.middle-section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
-.middleSection h2{
+.middle-section h2{
     color: white;
     font-size: 80px;
     transform: scale(0.9,1);
     letter-spacing: 1;
 }
-.quoteFirstLine{
+.quote-first-line{
     font-size: 100px;
     transform: scale(1,1.2);
     color: white;
 }
-.quoteSecondLine{
+.quote-second-line{
     font-size: 130px;
     color: white;
     transform: scale(1,1.1);
 }
 
 /* YEAR SECTION STYLES */
-.yearSection{
+.year-section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
-.yearContainer{
+.year-container{
     text-align: left;
     transform: rotate(-90deg);
     margin-right: -90px;
     margin-top: 125px;
 }
-.yearContainer h4{
+.year-container h4{
     display: inline;
     font-size: 40px;
     color: white;
+    padding-right: 20px;
 }
-.yearContainer h1{
+.year-container h1{
     display: inline;
     font-size: 100px;
     color: white;
 }
-.iconSection{
+.icon-section{
     display: flex;
     width: 100%;
     padding-right: 40px;
     justify-content:right;
 }
-.iconSection i{
+.icon-section i{
     font-size: 40px;
     color: white;
     padding: 10px;
