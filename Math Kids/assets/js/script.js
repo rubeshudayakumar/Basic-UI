@@ -75,9 +75,6 @@ var shapes = [
     
 ];
 
-
-
-
 // length of the object 
 var shapesLength = shapes.length;
 
@@ -151,101 +148,100 @@ function renderShapeSelectionSection(){
             console.log(shapes[selectedShapeIndex].name);
         });
     });
+    // code for triggering next button click event
+    document.querySelector(".next-button").addEventListener("click",(event)=>{
+
+        //removing the select shape section
+        let currentSection =  document.querySelector(".calculation-area");
+        currentSection.innerHTML = "";
+
+        //creating step 2 (calculation section)
+        let calculationArea = document.querySelector(".calculation-area");
+        let inputSectionElement = document.createElement("section");
+        let inputSection = calculationArea.appendChild(inputSectionElement);
+        inputSection.classList.add("input-section");
+
+        // creating input instruction
+        let createElementInstruction = document.createElement("h2");
+        createElementInstruction.innerHTML = shapes[selectedShapeIndex].measurementInstruction;
+        let instruction = inputSection.appendChild(createElementInstruction);
+        instruction.className = "enter-measurement-instruction";
+        
+        // creating a input field
+        let inputField = inputSection.appendChild(document.createElement("input"));
+        inputField.className = "entry-value";
+        inputField.type = "text";
+        
+        // creating calculate button 
+        let calculateBtn = inputSection.appendChild(document.createElement("button"));
+        calculateBtn.className = "calculate-button";
+        calculateBtn.innerHTML = "CALCULATE";  
+
+        // adding click event listener for calculate button
+        document.querySelector(".calculate-button").addEventListener("click",(event) => {
+            // storing the input value to the particular selected shape before removing the (section-2 : Enter Side)
+            shapes[selectedShapeIndex].side = parseFloat(document.querySelector(".entry-value").value);
+
+            // removing the (section-2 : )
+            document.querySelector(".calculation-area").innerHTML = "";
+
+            calculationSection = document.querySelector(".calculation-area").appendChild(document.createElement("section"));
+            calculationSection.classList.add("choose-shape-section"); 
+
+            //creating output shape
+            outputShape = calculationSection.appendChild(document.createElement("div"));   
+            outputShape.classList.add(shapes[selectedShapeIndex].className);
+
+            //creating shape name
+            shapeName = calculationSection.appendChild(document.createElement("h2"));
+            shapeName.classList.add("enter-measurement-instruction");
+            shapeName.innerHTML = shapes[selectedShapeIndex].name;
+
+            // creating shape output container
+            shapeOutput = calculationSection.appendChild(document.createElement("div"));
+            shapeOutput.classList.add("shape-output-container");
+
+            //creating output array
+            var outputArray = [
+                ["SIDE",shapes[selectedShapeIndex].sideSymbol,shapes[selectedShapeIndex].side+" cm"],
+                ["AREA",shapes[selectedShapeIndex].areaFormula.formula,shapes[selectedShapeIndex].area(shapes[selectedShapeIndex].side).toFixed(2).toString()+" "+shapes[selectedShapeIndex].areaFormula.unit],
+                [shapes[selectedShapeIndex].perimeterFormula.propertyName,shapes[selectedShapeIndex].perimeterFormula.formula,shapes[selectedShapeIndex].perimeter(shapes[selectedShapeIndex].side).toFixed(2).toString()+" "+shapes[selectedShapeIndex].perimeterFormula.unit],
+            ];
+
+            // creating output rows and columns
+            for(var i=0;i<3;i++){
+                row = shapeOutput.appendChild(document.createElement("div"));
+                row.classList.add("shape-output-row");
+
+                for(var j=0;j<3;j++){
+                    col = row.appendChild(document.createElement("div"));
+                    col.classList.add("cell");
+                    if(j==0) col.classList.add("first-cell");
+                    if(j==1) col.classList.add("middle-cell");
+                    if(j==2) col.classList.add("last-cell");
+                    col.innerHTML = outputArray[i][j];
+                }
+            }
+
+            // creating start again button 
+            startAgainButton =  calculationSection.appendChild(document.createElement("button"));
+            startAgainButton.classList.add("start-again-button");
+            startAgainButton.innerHTML = "START AGAIN";
+
+            // event listener for start again button
+            startAgainButton.addEventListener("click",(event)=>{
+                document.querySelector(".calculation-area").innerHTML = "";
+                renderShapeSelectionSection();
+            });
+
+        });
+
+    });
 }
 
 // calling the function for the (section 1 : choose a shape)
 renderShapeSelectionSection();
 
-// code for triggering next button click event
-document.querySelector(".next-button").addEventListener("click",(event)=>{
-
-    //removing the select shape section
-    let currentSection =  document.querySelector(".calculation-area");
-    currentSection.innerHTML = "";
-
-    //creating step 2 (calculation section)
-    let calculationArea = document.querySelector(".calculation-area");
-    let inputSectionElement = document.createElement("section");
-    let inputSection = calculationArea.appendChild(inputSectionElement);
-    inputSection.classList.add("input-section");
-
-    // creating input instruction
-    let createElementInstruction = document.createElement("h2");
-    createElementInstruction.innerHTML = shapes[selectedShapeIndex].measurementInstruction;
-    let instruction = inputSection.appendChild(createElementInstruction);
-    instruction.className = "enter-measurement-instruction";
-    
-    // creating a input field
-    let inputField = inputSection.appendChild(document.createElement("input"));
-    inputField.className = "entry-value";
-    inputField.type = "text";
-    
-    // creating calculate button 
-    let calculateBtn = inputSection.appendChild(document.createElement("button"));
-    calculateBtn.className = "calculate-button";
-    calculateBtn.innerHTML = "CALCULATE";  
-
-    // adding click event listener for calculate button
-    document.querySelector(".calculate-button").addEventListener("click",(event) => {
-        // storing the input value to the particular selected shape before removing the (section-2 : Enter Side)
-        shapes[selectedShapeIndex].side = parseFloat(document.querySelector(".entry-value").value);
-
-        // removing the (section-2 : Enter Side)
-        document.querySelector(".calculation-area").innerHTML = "";
-
-        // creating parent element
-        calculationSection = document.querySelector(".calculation-area").appendChild(document.createElement("section"));
-        calculationSection.classList.add("choose-shape-section"); 
-
-        //creating output shape
-        outputShape = calculationSection.appendChild(document.createElement("div"));   
-        outputShape.classList.add(shapes[selectedShapeIndex].className);
-
-        //creating shape name
-        shapeName = calculationSection.appendChild(document.createElement("h2"));
-        shapeName.classList.add("enter-measurement-instruction");
-        shapeName.innerHTML = shapes[selectedShapeIndex].name;
-
-        // creating shape output container
-        shapeOutput = calculationSection.appendChild(document.createElement("div"));
-        shapeOutput.classList.add("shape-output-container");
-
-        //creating output array
-        var outputArray = [
-            ["SIDE",shapes[selectedShapeIndex].sideSymbol,shapes[selectedShapeIndex].side+" cm"],
-            ["AREA",shapes[selectedShapeIndex].areaFormula.formula,shapes[selectedShapeIndex].area(shapes[selectedShapeIndex].side).toString()+" "+shapes[selectedShapeIndex].areaFormula.unit],
-            [shapes[selectedShapeIndex].perimeterFormula.propertyName,shapes[selectedShapeIndex].perimeterFormula.formula,shapes[selectedShapeIndex].perimeter(shapes[selectedShapeIndex].side).toString()+" "+shapes[selectedShapeIndex].perimeterFormula.unit],
-        ];
-
-        // creating output rows and columns
-        for(var i=0;i<3;i++){
-            row = shapeOutput.appendChild(document.createElement("div"));
-            row.classList.add("shape-output-row");
-
-            for(var j=0;j<3;j++){
-                col = row.appendChild(document.createElement("div"));
-                col.classList.add("cell");
-                if(j==0) col.classList.add("first-cell");
-                if(j==1) col.classList.add("middle-cell");
-                if(j==2) col.classList.add("last-cell");
-                col.innerHTML = outputArray[i][j];
-            }
-        }
-
-        // creating start again button 
-        startAgainButton =  calculationSection.appendChild(document.createElement("button"));
-        startAgainButton.classList.add("start-again-button");
-        startAgainButton.innerHTML = "START AGAIN";
-
-        // event listener for start again button
-        startAgainButton.addEventListener("click",(event)=>{
-            document.querySelector(".calculation-area").innerHTML = "";
-            renderShapeSelectionSection();
-        });
-
-    });
-
-});
 
 
 
