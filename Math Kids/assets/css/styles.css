@@ -140,3 +140,46 @@
 *:focus{
     outline: none;
 }
+
+/* STYLES FOR OUTPUT ROWS AND COLUMNS */
+.shape-output-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.cell{
+    font-size: 20px;
+    color : white;
+    font-weight: 300;
+}
+.first-cell{
+    background-color: #0D62D6;
+    width: 180px;
+    padding: 10px;
+}
+
+.middle-cell{
+    width: 130px;
+    padding: 10px;
+    background-color: #455D7E;
+}
+.last-cell{
+    width: 120px;
+    padding: 10px;
+    background-color: #3288FF;
+}
+.shape-output-row{
+    display: flex;
+}
+.start-again-button{
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    padding: 15px 24px;
+    margin-top: 50px;
+    width: 210px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+}

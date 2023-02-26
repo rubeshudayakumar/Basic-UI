@@ -1,55 +1,77 @@
-// code for putting tick mark
-
-// var shapeName = "triangle";
-
-// var inputValue1 = ""
-
-// var inputValue2 = ""
-
-// var result = 0
+// creating shapes object
 
 var shapes = [
     {
-        name : "circle",
+        name : "Circle",
         side : 0.0,
         className : "circle",
         isTicked : true,
         result : 0.0,
-        areaOfCircle: (r) => {
+        area: (r) => {
             return (3.14*r*r);
         },
         measurementInstruction: "2.Enter Radius",
-        circumferenceOfCircle : (r) => {
+        perimeter : (r) => {
             return (2*3.14*r);
-        }
+        },
+        sideSymbol : "r",
+        areaFormula : {
+           formula:  "&pi; * r * r",
+           unit: "sq cm"
+        },
+        perimeterFormula : {
+            formula : "2 * &pi; * r",
+            propertyName : "CIRCUMFERENCE",
+            unit: "cm",
+        },
     },
     {
-        name : "triangle",
+        name : "Equilateral Triangle",
         side : 0.0,
         className : "triangle",
         isTicked : false,
         result : 0.0,
-        areaOfTriangle : (s) => {
+        area : (s) => {
             return (s*s)/2;
         },
         measurementInstruction: "2.Enter Side (Base & Height) ",
-        perimeterOfTriangle : (s) => {
+        perimeter : (s) => {
             return (s*3);
-        }
+        },
+        sideSymbol : "s",
+        areaFormula : {
+           formula:  "0.433 * s * s",
+           unit: "sq cm"
+        },
+        perimeterFormula : {
+            formula : "3*s",
+            propertyName : "PERIMETER",
+            unit: "cm",
+        },
     },
     {
-        name : "square",
+        name : "Square",
         side : 0.0,
         className : "square",
         isTicked : false,
         result : 0.0,
-        areaOfSquare : (s) => {
+        area : (s) => {
             return (s*s);
         },
         measurementInstruction: "2.Enter Side ",
-        perimeterOfSquare : (s) => {
+        perimeter : (s) => {
             return (4*s);
-        }
+        },
+        sideSymbol: "a",
+        areaFormula : {
+            formula:  "a * a",
+            unit: "sq cm"
+        },
+        perimeterFormula : {
+            formula : "4 * a",
+            propertyName : "PERIMETER",
+            unit: "cm",
+        },
     },
     
 ];
@@ -60,22 +82,26 @@ var shapeContainer = document.querySelector(".shape-container");
 
 var selectedShapeIndex = 0;
 
-for(i=0;i<shapesLength;i++){
-    var child = document.createElement('div');
-    child.className = shapes[i].className;
-    child.classList.add('shape');
-    // shapeContainer.appendChild(child).appendChild('div');
-    // shapeContainer.
-    if(shapes[i].isTicked==true){
-        var appendedChild = shapeContainer.appendChild(child);
-        var tickMark = document.createElement('div');
-        appendedChild.appendChild(tickMark);
-        tickMark.classList.add('tick-mark');
-        tickMark.classList.add('align-tick');
-        continue;
+function renderShapeSelectionSection(){
+    for(i=0;i<shapesLength;i++){
+        var child = document.createElement('div');
+        child.className = shapes[i].className;
+        child.classList.add('shape');
+        // shapeContainer.appendChild(child).appendChild('div');
+        // shapeContainer.
+        if(shapes[i].isTicked==true){
+            var appendedChild = shapeContainer.appendChild(child);
+            var tickMark = document.createElement('div');
+            appendedChild.appendChild(tickMark);
+            tickMark.classList.add('tick-mark');
+            tickMark.classList.add('align-tick');
+            continue;
+        }
+        shapeContainer.appendChild(child);
     }
-    shapeContainer.appendChild(child);
 }
+
+renderShapeSelectionSection();
 
 var shapesList = document.querySelectorAll(".shape-container .shape");
 
@@ -142,14 +168,49 @@ document.querySelector(".next-button").addEventListener("click",(event)=>{
         outputShape.classList.add(shapes[selectedShapeIndex].className);
 
         //creating shape name
-        
         shapeName = calculationSection.appendChild(document.createElement("h2"));
         shapeName.classList.add("enter-measurement-instruction");
         shapeName.innerHTML = shapes[selectedShapeIndex].name;
 
+        // creating shape output container
+        shapeOutput = calculationSection.appendChild(document.createElement("div"));
+        shapeOutput.classList.add("shape-output-container");
 
+        //creating output array
+        var outputArray = [
+            ["SIDE",shapes[selectedShapeIndex].sideSymbol,shapes[selectedShapeIndex].side+" cm"],
+            ["AREA",shapes[selectedShapeIndex].areaFormula.formula,shapes[selectedShapeIndex].area(shapes[selectedShapeIndex].side).toString()+" "+shapes[selectedShapeIndex].areaFormula.unit],
+            [shapes[selectedShapeIndex].perimeterFormula.propertyName,shapes[selectedShapeIndex].perimeterFormula.formula,shapes[selectedShapeIndex].perimeter(shapes[selectedShapeIndex].side).toString()+" "+shapes[selectedShapeIndex].perimeterFormula.unit],
+        ];
+
+        // creating output rows and columns
+        for(var i=0;i<3;i++){
+            row = shapeOutput.appendChild(document.createElement("div"));
+            row.classList.add("shape-output-row");
+
+            for(var j=0;j<3;j++){
+                col = row.appendChild(document.createElement("div"));
+                col.classList.add("cell");
+                if(j==0) col.classList.add("first-cell");
+                if(j==1) col.classList.add("middle-cell");
+                if(j==2) col.classList.add("last-cell");
+                col.innerHTML = outputArray[i][j];
+            }
+        }
+
+        // creating start again button 
+        startAgainButton =  calculationSection.appendChild(document.createElement("button"));
+        startAgainButton.classList.add("start-again-button");
+        startAgainButton.innerHTML = "START AGAIN";
+
+        // event listener for start again button
+        startAgainButton.addEventListener("click",(event)=>{
+            document.querySelector(".calculation-area").innerHTML = "";
+            document.querySelector(".calculation-area").appendChild(shapeContainer);
+        });
 
     });
+
 });
 
 
