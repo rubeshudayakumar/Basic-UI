@@ -1,5 +1,4 @@
 // creating shapes object
-
 var shapes = [
     {
         name : "Circle",
@@ -76,62 +75,93 @@ var shapes = [
     
 ];
 
+
+
+
+// length of the object 
 var shapesLength = shapes.length;
 
-var shapeContainer = document.querySelector(".shape-container");
+// declaring global html object to reuse when start again button is clicked
+var shapeSection = "";
 
+// declaring selected shape index to store the shape index 
 var selectedShapeIndex = 0;
 
+// defining the choose shape section (section - 1: choose a shape)
 function renderShapeSelectionSection(){
+
+    // adding parent container 
+    var shapeSection = document.querySelector(".calculation-area").appendChild(document.createElement("section"));
+    shapeSection.classList.add("choose-shape-section");
+    
+    // adding children like h2 and shape container to the parent
+    var heading = shapeSection.appendChild(document.createElement("h2"));
+    heading.innerHTML = "1. Choose a Shape";
+    
+    // adding shape container to the parent 
+    var shapeContainer = shapeSection.appendChild(document.createElement("div"));
+    shapeContainer.classList.add("shape-container");
+
+    // adding shapes one by one with the help of the for loop
     for(i=0;i<shapesLength;i++){
         var child = document.createElement('div');
         child.className = shapes[i].className;
         child.classList.add('shape');
-        // shapeContainer.appendChild(child).appendChild('div');
-        // shapeContainer.
         if(shapes[i].isTicked==true){
             var appendedChild = shapeContainer.appendChild(child);
             var tickMark = document.createElement('div');
             appendedChild.appendChild(tickMark);
             tickMark.classList.add('tick-mark');
-            tickMark.classList.add('align-tick');
-            continue;
+            if(shapes[i].className=="triangle") tickMark.classList.add('align-tick');
         }
         shapeContainer.appendChild(child);
     }
+
+    // adding the next button below the shape container
+    nextButton = shapeSection.appendChild(document.createElement("button"));
+    nextButton.innerHTML = "NEXT";
+    nextButton.classList.add("next-button");
+
+    // selecting all the shapes
+    var shapesList = document.querySelectorAll(".shape-container .shape");
+
+    // adding individiual event listeners for selecting the shapes
+    shapesList.forEach((val,i) => {
+        val.addEventListener("click",(event)=>{
+
+            // marking the tick to the selected shape
+            event.target.innerHTML = "<div class='tick-mark'></div>";
+            selectedShapeIndex = i;
+            selectedShape = event.target;
+
+            // unmarking the ticks to the unselected shape
+            shapesList.forEach((val)=>{
+                if(val!=selectedShape){
+                    val.innerHTML = "";
+                }
+            });
+            shapeName = selectedShape.outerHTML;
+            shapeName = shapeName.split("shape")[0].split("=")[1].slice(1).trim();
+            if(shapeName=="triangle"){
+                shapesList[1].children[0].classList.add("align-tick");
+            }
+
+            // setting the button to visible after the shape has been selected
+            document.querySelector(".choose-shape-section button").style.visibility = "visible";
+            console.log(shapes[selectedShapeIndex].name);
+        });
+    });
 }
 
+// calling the function for the (section 1 : choose a shape)
 renderShapeSelectionSection();
-
-var shapesList = document.querySelectorAll(".shape-container .shape");
-
-// code for selecting the shapes
-shapesList.forEach((val,i) => {
-    val.addEventListener("click",(event)=>{
-        event.target.innerHTML = "<div class='tick-mark'></div>";
-        selectedShapeIndex = i;
-        selectedShape = event.target;
-        shapesList.forEach((val)=>{
-            if(val!=selectedShape){
-                val.innerHTML = "";
-            }
-        });
-        shapeName = selectedShape.outerHTML;
-        shapeName = shapeName.split("shape")[0].split("=")[1].slice(1).trim();
-        if(shapeName=="triangle"){
-            shapesList[1].children[0].classList.add("align-tick");
-        }
-        document.querySelector(".choose-shape-section button").style.visibility = "visible";
-        console.log(shapes[selectedShapeIndex].name);
-    });
-});
 
 // code for triggering next button click event
 document.querySelector(".next-button").addEventListener("click",(event)=>{
 
     //removing the select shape section
     let currentSection =  document.querySelector(".calculation-area");
-    currentSection.removeChild(currentSection.childNodes[3]);
+    currentSection.innerHTML = "";
 
     //creating step 2 (calculation section)
     let calculationArea = document.querySelector(".calculation-area");
@@ -157,9 +187,13 @@ document.querySelector(".next-button").addEventListener("click",(event)=>{
 
     // adding click event listener for calculate button
     document.querySelector(".calculate-button").addEventListener("click",(event) => {
+        // storing the input value to the particular selected shape before removing the (section-2 : Enter Side)
         shapes[selectedShapeIndex].side = parseFloat(document.querySelector(".entry-value").value);
+
+        // removing the (section-2 : Enter Side)
         document.querySelector(".calculation-area").innerHTML = "";
 
+        // creating parent element
         calculationSection = document.querySelector(".calculation-area").appendChild(document.createElement("section"));
         calculationSection.classList.add("choose-shape-section"); 
 
@@ -206,7 +240,7 @@ document.querySelector(".next-button").addEventListener("click",(event)=>{
         // event listener for start again button
         startAgainButton.addEventListener("click",(event)=>{
             document.querySelector(".calculation-area").innerHTML = "";
-            document.querySelector(".calculation-area").appendChild(shapeContainer);
+            renderShapeSelectionSection();
         });
 
     });
