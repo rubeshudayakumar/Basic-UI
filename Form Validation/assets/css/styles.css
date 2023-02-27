@@ -1,0 +1,19 @@
+/* universal styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #F5F5F5;
+}
+
+/* header and logo styles */
+.form-header{
+    display: flex;
+    justify-content: center;
+}
+.form-header img{
+    height: 100px;
+}
+
