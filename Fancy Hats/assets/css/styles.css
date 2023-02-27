@@ -45,6 +45,10 @@ body{
 .drop-down ul{
     list-style: none;
 }
+li:hover{
+    color: grey;
+    cursor: pointer;
+}
 .drop-down ul{
     display: flex;
     flex-wrap: wrap;
