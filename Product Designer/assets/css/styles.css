@@ -51,8 +51,11 @@ body{
 .role{
     font-size: 47px;
 }
-.mobile-email{
-    display: none;
+
+@media only screen and (max-width: 1440px){
+    .mobile-email{
+        display: none;
+    }
 }
 
 /* PRODUCTS SECTION  */
