@@ -1,4 +1,4 @@
-[{
+var friendsList = [{
 		"first_name": "Mehetabel",
 		"last_name": "Holley",
 		"email": "mholley0@nature.com",
