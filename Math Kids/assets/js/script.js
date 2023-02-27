@@ -83,6 +83,8 @@ var shapeSection = "";
 
 // declaring selected shape index to store the shape index 
 var selectedShapeIndex = 0;
+localStorage.setItem("shapeIndex", 0);
+
 
 // defining the choose shape section (section - 1: choose a shape)
 function renderShapeSelectionSection(){
@@ -129,6 +131,7 @@ function renderShapeSelectionSection(){
             // marking the tick to the selected shape
             event.target.innerHTML = "<div class='tick-mark'></div>";
             selectedShapeIndex = i;
+            localStorage.setItem("shapeIndex",i);
             selectedShape = event.target;
 
             // unmarking the ticks to the unselected shape
