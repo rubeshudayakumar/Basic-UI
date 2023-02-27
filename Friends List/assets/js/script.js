@@ -20,7 +20,7 @@ friendsList.forEach((item)=>{
 
     // creating and appending the friends details
     let friendsName = friendsDetailContainer.appendChild(document.createElement("h3"));
-    friendsName.innerHTML = item.first_name + " " + item.last_name;
+    friendsName.innerHTML = item.first_name+" "+ item.last_name;
     let friendEmail = friendsDetailContainer.appendChild(document.createElement("p"));
     friendEmail.innerHTML = item.email;
 });
