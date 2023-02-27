@@ -14,7 +14,7 @@ console.log(2=="2"); //true
 
 console.log("<----- Section 2 : Play with arrays ----->");
 // creating an array with a name of 10 cricket players
-cricketPlayers = ["Watson","Faf","Rayudu","Raina","Dhoni","Jadeja","Bravo","Morkel","Tahir","Ashwin","Chahar"];
+var cricketPlayers = ["Watson","Faf","Rayudu","Raina","Dhoni","Jadeja","Bravo","Morkel","Tahir","Ashwin","Chahar"];
 
 // because of the injury the first player is being removed
 cricketPlayers.shift();
@@ -36,9 +36,9 @@ cricketPlayers.forEach((value,index,array)=> {
 });
 
 // printing in uppercase and storing it in different place
-printingJersy = [];
-cricketPlayers.forEach((val)=> {
-    printingJersy.push(val.toUpperCase());
+var printingJersy = [];
+cricketPlayers.forEach((value)=> {
+    printingJersy.push(value.toUpperCase());
 });
 console.log(printingJersy);
 
@@ -56,13 +56,13 @@ displayNumbers();
 
 
 // display date in dd/mm/yyyy
-formatedDate = "";
-date = new Date();
-date = date.toISOString();
-month = date.slice(5,7)
-day = date.slice(8,10);
-year = date.slice(0,4);
-formatedDate = day+"/"+month+"/"+year;
+var formatedDate = "";
+var date = new Date();
+var date = date.toISOString();
+var month = date.slice(5,7);
+var day = date.slice(8,10);
+var year = date.slice(0,4);
+var formatedDate = day+"/"+month+"/"+year;
 console.log(formatedDate);
 
 // celcius to faranheit 
