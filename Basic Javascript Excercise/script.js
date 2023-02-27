@@ -7,7 +7,7 @@ console.log(1+2+"apple"); //3apple
 console.log("apple"+1+2); //apple12
 console.log(1+true); //2
 console.log(0==false); //true
-console.log(1==true); //true
+console.log(1===true); //false
 console.log(2=="2"); //true
 
 //Section 2 : Play with arrays 
@@ -31,7 +31,7 @@ console.log(cricketPlayers);
 
 // assigning a randomjersy number to the individual players
 cricketPlayers.forEach((val,i,a)=> {
-    console.log(val+"-"+Math.round(Math.random()*1000));
+   console.log(val+"-"+Math.round(Math.random()*1000));
     a[i]=val+"-"+Math.round(Math.random()*1000);
 });
 
@@ -53,6 +53,7 @@ function displayNumbers() {
     console.log(numbers);
 }
 displayNumbers();
+
 
 // display date in dd/mm/yyyy
 formatedDate = "";
