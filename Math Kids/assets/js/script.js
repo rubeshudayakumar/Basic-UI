@@ -4,8 +4,6 @@ var shapes = [
         name : "Circle",
         side : 0.0,
         className : "circle",
-        isTicked : true,
-        result : 0.0,
         area: (r) => {
             return (3.14*r*r);
         },
@@ -28,8 +26,6 @@ var shapes = [
         name : "Equilateral Triangle",
         side : 0.0,
         className : "triangle",
-        isTicked : false,
-        result : 0.0,
         area : (s) => {
             return (s*s)/2;
         },
@@ -52,8 +48,6 @@ var shapes = [
         name : "Square",
         side : 0.0,
         className : "square",
-        isTicked : false,
-        result : 0.0,
         area : (s) => {
             return (s*s);
         },
