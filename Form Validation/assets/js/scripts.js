@@ -19,7 +19,14 @@ function validate(){
         firstName.style.borderColor = "#A80000";
         isValid = false;
     }
+
     
+    // if(firstName.value.test(/^[a-zA-Z]{1,30}$/g)==false){
+    //     errorMessage = "First Name is not valid";
+    //     document.querySelector(".first-section > .error-message").innerHTML = errorMessage;
+    //     firstName.style.borderColor = "#A80000";
+    //     isValid = false;
+    // }
     
     // checking if the last name is empty
     if(lastName.value.trim()==""){
