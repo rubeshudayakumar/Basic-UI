@@ -104,7 +104,7 @@ function renderShapeSelectionSection(){
     for(i=0;i<shapesLength;i++){
         let child = document.createElement('div');
         child.className = shapes[i].className;
-        child.classList.add('shape');
+        child.classList.add('shape');//
         if(i==localStorage.getItem("shapeIndex")){
             let appendedChild = shapeContainer.appendChild(child);
             let tickMark = document.createElement('div');
@@ -142,7 +142,7 @@ function renderShapeSelectionSection(){
             shapeName = shapeName.split("shape")[0].split("=")[1].slice(1).trim();
             if(shapeName=="triangle"){
                 shapesList[1].children[0].classList.add("align-tick");
-            }
+            }//
 
             // setting the button to visible after the shape has been selected
             document.querySelector(".choose-shape-section button").style.visibility = "visible";
