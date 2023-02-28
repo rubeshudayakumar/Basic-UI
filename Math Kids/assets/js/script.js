@@ -5,11 +5,11 @@ var shapes = [
         side : 0.0,
         className : "circle",
         area: (r) => {
-            return (3.14*r*r);
+            return parseFloat((3.14*r*r).toFixed(2));
         },
-        measurementInstruction: "2.Enter Radius",
+        measurementInstruction: "2. Enter Radius",
         perimeter : (r) => {
-            return (2*3.14*r);
+            return parseFloat((2*3.14*r).toFixed(2));
         },
         sideSymbol : "r",
         areaFormula : {
@@ -29,7 +29,7 @@ var shapes = [
         area : (s) => {
             return (s*s)/2;
         },
-        measurementInstruction: "2.Enter Side (Base & Height) ",
+        measurementInstruction: "2. Enter Side (Base & Height) ",
         perimeter : (s) => {
             return (s*3);
         },
@@ -39,7 +39,7 @@ var shapes = [
            unit: "sq cm"
         },
         perimeterFormula : {
-            formula : "3*s",
+            formula : "3 * s",
             propertyName : "PERIMETER",
             unit: "cm",
         },
@@ -51,7 +51,7 @@ var shapes = [
         area : (s) => {
             return (s*s);
         },
-        measurementInstruction: "2.Enter Side ",
+        measurementInstruction: "2. Enter Side ",
         perimeter : (s) => {
             return (4*s);
         },
@@ -74,10 +74,6 @@ var shapesLength = shapes.length;
 
 // declaring global html object to reuse when start again button is clicked
 var shapeSection = "";
-
-if(localStorage.getItem("shapeIndex")==null){
-    localStorage.setItem("shapeIndex", 0);
-}
 
 // defining the choose shape section (section - 1: choose a shape)
 function renderShapeSelectionSection(){
@@ -111,8 +107,11 @@ function renderShapeSelectionSection(){
 
     // adding the next button below the shape container
     let nextButton = shapeSection.appendChild(document.createElement("button"));
-    nextButton.innerHTML = "NEXT";
+    nextButton.innerHTML = "next";
     nextButton.classList.add("next-button");
+    if(localStorage.getItem("shapeIndex")!=null){
+        nextButton.style.visibility = "visible";
+    }
 
     // selecting all the shapes
     let shapesList = document.querySelectorAll(".shape-container .shape");
@@ -172,7 +171,7 @@ function renderShapeSelectionSection(){
         // creating calculate button 
         let calculateBtn = inputSection.appendChild(document.createElement("button"));
         calculateBtn.className = "calculate-button";
-        calculateBtn.innerHTML = "CALCULATE";  
+        calculateBtn.innerHTML = "calculate";  
 
         // adding click event listener for calculate button
         document.querySelector(".calculate-button").addEventListener("click",(event) => {
@@ -198,11 +197,13 @@ function renderShapeSelectionSection(){
             let shapeOutput = calculationSection.appendChild(document.createElement("div"));
             shapeOutput.classList.add("shape-output-container");
 
+            console.log(shapes[selectedShapeIndex].area(shapes[selectedShapeIndex].side));
+
             //creating output array
             let outputArray = [
                 ["SIDE",shapes[selectedShapeIndex].sideSymbol,shapes[selectedShapeIndex].side+" cm"],
-                ["AREA",shapes[selectedShapeIndex].areaFormula.formula,shapes[selectedShapeIndex].area(shapes[selectedShapeIndex].side).toFixed(2).toString()+" "+shapes[selectedShapeIndex].areaFormula.unit],
-                [shapes[selectedShapeIndex].perimeterFormula.propertyName,shapes[selectedShapeIndex].perimeterFormula.formula,shapes[selectedShapeIndex].perimeter(shapes[localStorage.getItem("shapeIndex")].side).toFixed(2).toString()+" "+shapes[localStorage.getItem("shapeIndex")].perimeterFormula.unit],
+                ["AREA", shapes[selectedShapeIndex].areaFormula.formula,shapes[selectedShapeIndex].area(shapes[selectedShapeIndex].side)+" "+shapes[selectedShapeIndex].areaFormula.unit],
+                [shapes[selectedShapeIndex].perimeterFormula.propertyName,shapes[selectedShapeIndex].perimeterFormula.formula,shapes[selectedShapeIndex].perimeter(shapes[localStorage.getItem("shapeIndex")].side)+" "+shapes[localStorage.getItem("shapeIndex")].perimeterFormula.unit],
             ];
 
             // creating output rows and columns
@@ -223,7 +224,7 @@ function renderShapeSelectionSection(){
             // creating start again button 
             let startAgainButton =  calculationSection.appendChild(document.createElement("button"));
             startAgainButton.classList.add("start-again-button");
-            startAgainButton.innerHTML = "START AGAIN";
+            startAgainButton.innerHTML = "start again";
 
             // event listener for start again button
             startAgainButton.addEventListener("click",(event)=>{

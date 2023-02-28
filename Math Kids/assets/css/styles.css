@@ -40,7 +40,7 @@
 .choose-shape-section h2{
     color: white;
     font-size: 50px;
-    font-weight: 300;
+    font-weight: 400;
 }
 .shape-container{
     margin: 0 auto;
@@ -54,8 +54,8 @@
     align-items:center;
 }
 .circle{
-    height: 170px;
-    width: 170px;
+    height: 160px;
+    width: 160px;
     background-color: #00987D;
     border-radius: 50%;
     cursor: pointer;
@@ -64,41 +64,43 @@
     margin-top: 10px;
     width: 0; 
     height: 0; 
-    border-left: 90px solid transparent;
-    border-right: 90px solid transparent;  
-    border-bottom: 160px solid #FFABDC;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;  
+    border-bottom: 150px solid #FFABDC;
     cursor: pointer;
 }
 .square{
-    height: 170px;
-    width: 170px;
+    height: 160px;
+    width: 160px;
     background-color: #E0E0E0;
     cursor: pointer;
 }
 
 .tick-mark{
     position: absolute;
-    height: 25px;
+    margin-top: -20px;
+    height: 21px;
     width: 50px;
-    transform: rotate(-40deg );
-    border: 3px solid white;
+    transform: rotate(-45deg );
+    border: 2.5px solid white;
     border-top: none;
     border-right: none;
 }
 .align-tick{
-    top: 530px;
+    top: 565px;
 }
 .next-button{
     height: 60px;
     width: 220px;
     background-color: black;
     border: 2px solid white;
-    padding: 15px 50px;
+    padding: 8px 50px;
     visibility: hidden;
     color: white;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 24px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
  /* SHAPE DIMENSTION INPUT SECTION */
@@ -127,10 +129,12 @@
     text-align: center;
     font-weight: 700;
     cursor: pointer;
+    text-transform: uppercase;
 }
 .entry-value{
     font-size: 50px;
     color: white;
+    padding-left: 18px;
     height: 90px;
     width: 690px;
     background-color: black;
@@ -181,4 +185,5 @@
     text-align: center;
     font-weight: 700;
     cursor: pointer;
+    text-transform: uppercase;
 }
