@@ -35,7 +35,7 @@ function enterPinAndAccountNumber(){
 
     // validate function to check pin and find account position index
     function validate(cardNo,pinNo){
-        for(i=0;i<accountDetails.length;i++){
+        for(var i=0;i<accountDetails.length;i++){
             if(accountDetails[i].cardNo==cardNo && accountDetails[i].pin==pinNo){
                 return i;
             }
@@ -45,19 +45,21 @@ function enterPinAndAccountNumber(){
 
     // with drawfunction to with draw the amount
     function withDrawFromATM(cardNo,pinNo){
-        if(validate(cardNo,pinNo)!==false){
+        var selectedIndex = validate(cardNo,pinNo);
+        if(selectedIndex!==false){
             var amount =  window.prompt("Enter the amount to withdraw : ");
-            accountDetails[i].accountBalance-=amount;
-            alert("Balance amount : "+accountDetails[i].accountBalance);
+            accountDetails[selectedIndex].accountBalance-=amount;
+            alert("Balance amount : "+accountDetails[selectedIndex].accountBalance);
         }
     }
 
     // deposit function to deposit the amount
     function depositToCDM(cardNo,pinNo){
-        if(validate(cardNo,pinNo)!==false){
+        var selectedIndex = validate(cardNo,pinNo);
+        if(selectedIndex!==false){
             var amount = window.prompt("Enter the amount to deposit : ");
-            accountDetails[i].accountBalance+=amount;
-            alert("Balance amount : "+accountDetails[i].accountBalance);
+            accountDetails[selectedIndex].accountBalance+=parseInt(amount);
+            alert("Balance amount : "+accountDetails[selectedIndex].accountBalance);
         }
     }
 
