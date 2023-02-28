@@ -20,6 +20,7 @@ function validate(){
         isValid = false;
     }
     
+    
     // checking if the last name is empty
     if(lastName.value.trim()==""){
         errorMessage = "Last Name is required";
@@ -60,7 +61,21 @@ function validate(){
         isValid = false;
     }
 
-    // 
+    // checking if the card expiry is empty
+    if(cardExpiry.value.trim()==""){
+        errorMessage = "Card Expiry is required";
+        document.querySelector("#card-expiry ~ .error-message").innerHTML = errorMessage;
+        cardExpiry.style.borderColor = "#A80000";
+        isValid = false;
+    }
+    
+    // checking if the card cvv is empty
+    if(cvv.value.trim()==""){
+        errorMessage = "CVV is required";
+        document.querySelector("#cvv-number ~ .error-message").innerHTML = errorMessage;
+        cvv.style.borderColor = "#A80000";
+        isValid = false;
+    }
 
     return isValid;
 }
