@@ -1,0 +1,62 @@
+/* universal styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #F5F5F5;
+}
+
+/* styles for header */
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+}
+.header img{
+    width: 156px;
+    height: 66px;
+}
+
+/* styles for tab container and tab buttons */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 66px;
+}
+.tab-content-container{
+    width: 632px;
+    height: 561px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.tabs-container{
+    width: 580px;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 14px;
+}
+.in-active,.active{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 117px;
+    height: 37px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.in-active{
+    background-color: black;
+    color: white;
+}
+.active{
+    background-color: #001B71;
+    color: white;
+}
