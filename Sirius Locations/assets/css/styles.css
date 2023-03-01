@@ -40,7 +40,7 @@ body{
     justify-content: flex-start;
     column-gap: 14px;
 }
-.in-active,.active{
+.tab{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,14 +49,27 @@ body{
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
-}
-.in-active{
     background-color: black;
     color: white;
 }
 .active{
     background-color: #001B71;
     color: white;
+}
+
+.about-us-section{
+    display: none;
+}
+.solutions-section{
+    display: none;
+}
+.locations-section{
+    display: none;
+}
+
+/* style to control the visibility of the section with respect to the selected tab */
+.tab-display-control{
+    display: flex;
 }
