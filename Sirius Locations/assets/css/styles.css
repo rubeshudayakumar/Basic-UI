@@ -78,6 +78,7 @@ body{
 .solutions-section{
     display: none;
     flex-direction: column;
+    row-gap: 8px;
     padding: 20px;
     background-color: white;
     height: 100%;

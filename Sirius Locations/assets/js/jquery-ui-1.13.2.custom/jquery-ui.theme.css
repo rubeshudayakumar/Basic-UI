@@ -61,9 +61,9 @@ works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
 	border: 1px solid #c5c5c5;
-	background: #f6f6f6;
+	background: #808EB9;
 	font-weight: normal;
-	color: #454545;
+	color: white;
 }
 .ui-state-default a,
 .ui-state-default a:link,
@@ -196,10 +196,10 @@ a.ui-button:active,
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-	background-image: url("images/ui-icons_444444_256x240.png");
+	background-image: url("images/ui-icons_ffffff_256x240.png");
 }
 .ui-widget-header .ui-icon {
-	background-image: url("images/ui-icons_444444_256x240.png");
+	background-image: url("images/ui-icons_ffffff_256x240.png");
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon,
