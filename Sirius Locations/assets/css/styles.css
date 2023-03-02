@@ -59,12 +59,36 @@ body{
     color: white;
 }
 
+/* styles for about us section */
 .about-us-section{
     display: none;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 32px;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
 }
+.about-us-section img{
+    height: 243px;
+    width: 578px;
+}
+
+/* styles for solutions section */
 .solutions-section{
     display: none;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    height: 100%;
 }
+.solutions-section div{
+    height: 123px;
+    font-size: 12px;
+    border: 1px solid #808EB9;
+    margin-top: -2px;
+}
+
 .locations-section{
     display: none;
 }

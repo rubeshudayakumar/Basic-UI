@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    $( function() {
+        $( "#accordion" ).accordion();
+      } );
+
     // initially selecting the about us tab and this about us section will be displayed
     var prevSelectedTab = $(".active");
     var prevSelectedSection = $(".about-us-section");
