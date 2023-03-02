@@ -1,4 +1,4 @@
-[
+var locations = [
   {
     "country": "United States",
     "state": "Arizona",

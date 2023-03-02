@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     $( function() {
@@ -23,6 +25,23 @@ $(document).ready(function () {
         prevSelectedSection = $("."+selectedTabName+"section");
     });
 
-    
+    // console.log(locations);
+
+
+
+    for(var i=0;i<locations.length;i++){
+      var container =   document.createElement("div");
+      $(".locations-section").append(container);
+      container.classList.add("locations-container");
+      if(i%2==0){
+        container.classList.add("grey-container");
+      }
+      else{
+        container.classList.add("pink-container");
+      }
+      var img = document.createElement("img");
+      img.src = "./assets/images/flag.png";
+      container.appendChild(img);
+    }
 
 });

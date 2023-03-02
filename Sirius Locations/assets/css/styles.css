@@ -33,6 +33,7 @@ body{
     width: 632px;
     height: 561px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: scroll;
 }
 .tabs-container{
     width: 580px;
@@ -68,6 +69,7 @@ body{
     font-size: 13px;
     font-weight: 300;
     line-height: 1.5;
+    background-color: white;
 }
 .about-us-section img{
     height: 243px;
@@ -90,9 +92,43 @@ body{
     margin-top: -2px;
 }
 
+/* styles for location section */
+
+.locations-container{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 12px;
+    background-color: white;
+}
+.grey-container{
+    background-color: #EEEEEE;
+}
+.pink-container{
+    background-color: #F2D9F7;
+}
+
 .locations-section{
     display: none;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px;
+    overflow: scroll;
+} 
+.locations-container img{
+    width: 27px; 
+    margin-left: 10px;
+    border-radius: 50%;
 }
+.state,.city{
+    width: 30%;
+}
+.phone-no{
+    margin-right: 15px;
+}
+
 
 /* style to control the visibility of the section with respect to the selected tab */
 .tab-display-control{
