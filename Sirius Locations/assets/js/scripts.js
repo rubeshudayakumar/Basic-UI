@@ -18,4 +18,7 @@ $(document).ready(function () {
         $("."+selectedTabName+"section").toggleClass("tab-display-control");
         prevSelectedSection = $("."+selectedTabName+"section");
     });
+
+    
+
 });
