@@ -26,7 +26,6 @@
 .friends-list-section{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     row-gap: 20px;
     margin: 0 auto;
     margin-top: 50px;
