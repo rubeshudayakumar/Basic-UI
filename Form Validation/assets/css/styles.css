@@ -29,7 +29,7 @@ body{
     flex-direction: column; 
     padding: 45px 35px;
     row-gap: 5px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 2px;
     width: 640px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -67,7 +67,7 @@ body{
 }
 .form-card button{
     background-color: #001B71;
-    color: white;
+    color: #fff;
     padding: 10px 0;
     margin-top: 20px;
     font-size: 15px;
@@ -76,21 +76,21 @@ body{
     cursor: pointer;
     
 }
-.first-section,.second-section{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    padding: 5px 0;
-    /* height: 100px; */
-    justify-content: space-evenly;
-}
+
 .error-message{
     color: #A80000;
 }
 .input-section{
     display: flex;
     flex-direction: column;
-    /* height: 100px; */
+    padding: 5px 0;
+    justify-content: space-evenly;
+}
+
+.small-input-section{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
     padding: 5px 0;
     justify-content: space-evenly;
 }
