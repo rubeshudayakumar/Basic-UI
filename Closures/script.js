@@ -46,27 +46,36 @@ function enterPinAndAccountNumber(){
     // with drawfunction to with draw the amount
     function withDrawFromATM(cardNo,pinNo){
         var selectedIndex = validate(cardNo,pinNo);
-        if(selectedIndex!==false){
+        if(selectedIndex!=false){
             var amount =  window.prompt("Enter the amount to withdraw : ");
             accountDetails[selectedIndex].accountBalance-=amount;
             alert("Balance amount : "+accountDetails[selectedIndex].accountBalance);
+        }
+        else{
+            alert("Invalid pin or card number");
         }
     }
 
     // deposit function to deposit the amount
     function depositToCDM(cardNo,pinNo){
         var selectedIndex = validate(cardNo,pinNo);
-        if(selectedIndex!==false){
+        if(selectedIndex!=false){
             var amount = window.prompt("Enter the amount to deposit : ");
             accountDetails[selectedIndex].accountBalance+=parseInt(amount);
             alert("Balance amount : "+accountDetails[selectedIndex].accountBalance);
         }
+        else{
+            alert("Invalid pin or card number");
+        }
     }
+
+    choosedOption = window.prompt("Enter your option: \n 1.WithDraw\n 2.Deposit");
 
     // getting card number and pin number from the user
     cardNo = window.prompt("Enter the card number");
     pinNo = window.prompt("Enter the pin number");
-    choosedOption = window.prompt("Enter your option: \n 1.WithDraw\n 2.Deposit");
+
+    
 
     // performing operations based on the options given by the user
     if(choosedOption==1){
