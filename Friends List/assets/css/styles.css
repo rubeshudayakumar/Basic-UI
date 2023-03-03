@@ -28,7 +28,6 @@
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 20px;
-    column-gap: 20px;
     margin: 0 auto;
     margin-top: 50px;
     width: 90%;
@@ -37,7 +36,8 @@
     display: flex;
     align-items: center;
     height: 105px;
-    width: 32%;
+    width: calc(97%/3);
+    margin: 0 calc(3%/6);
     background-color: #4d67b4;
 }
 .friends-list-item-container img{
