@@ -12,149 +12,44 @@ function validate(){
     let cardExpiry = document.getElementById("card-expiry");
     let cvv = document.getElementById("cvv-number");
 
-    // checking if the first name is empty
-    if(firstName.value.trim()==""){
-        errorMessage = "First Name is required";
-        document.querySelector(".first-section > .error-message").innerHTML = errorMessage;
-        firstName.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    // chec
-    else if((/^[a-zA-Z]{1,30}$/g).test(firstName.value)==false){
-        errorMessage = "First Name is not valid";
-        document.querySelector(".first-section > .error-message").innerHTML = errorMessage;
-        firstName.style.borderColor = "#A80000";
-        isValid = false;
-    }else{
-        document.querySelector(".first-section > .error-message").innerHTML = "";
-        firstName.style.borderColor = "#CCCCCC";
-    }
-    
-    // checking if the last name is empty
-    if(lastName.value.trim()==""){
-        errorMessage = "Last Name is required";
-        document.querySelector(".second-section > .error-message").innerHTML = errorMessage;
-        lastName.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[a-zA-Z]{1,30}$/g).test(lastName.value)==false){
-        errorMessage = "Last Name is not valid";
-        document.querySelector(".second-section > .error-message").innerHTML = errorMessage;
-        lastName.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else{
-        document.querySelector(".second-section > .error-message").innerHTML = "";
-        lastName.style.borderColor = "#CCCCCC";
+
+
+    // function validateInput()
+
+    function validateInput(inputObject,regEx,errorMessageEmpty,errorMessageInValid,selectorString){
+        var errorMessageSpan = document.querySelector(selectorString);
+
+        if(inputObject.value.trim()==""){
+            errorMessageSpan.innerHTML = errorMessageEmpty;
+            inputObject.style.borderColor = "#A80000";
+            isValid = false;
+        }
+        else if((regEx).test(inputObject.value)==false){
+            errorMessageSpan.innerHTML = errorMessageInValid;
+            inputObject.style.borderColor = "#A80000";
+            isValid = false;
+        }else{
+            errorMessageSpan.innerHTML = "";
+            inputObject.style.borderColor = "#CCCCCC";
+        }
     }
 
-    // checking if the email is empty
-    if(email.value.trim()==""){
-        errorMessage = "Email Address is required";
-        document.querySelector("#email-id ~ .error-message").innerHTML = errorMessage;
-        email.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[a-z][a-zA-Z0-9]+@[a-zA-Z0-9.-]+$/).test(email.value)==false){
-        errorMessage = "Email Address is not valid";
-        document.querySelector("#email-id ~ .error-message").innerHTML = errorMessage;
-        email.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else{
-        document.querySelector("#email-id ~ .error-message").innerHTML = "";
-        email.style.borderColor = "#CCCCCC";
-    }
+    validateInput(firstName,/^[a-zA-Z]{1,30}$/g,"First Name is required","First Name is not valid",".first-section > .error-message");
+    validateInput(lastName,/^[a-zA-Z]{1,30}$/g,"Last Name is required","Last Name is not valid",".second-section > .error-message");
+    validateInput(email,/^[A-z]+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,"Email Address is required","Email Address is not valid","#email-id ~ .error-message");
+    validateInput(contactNumber,/^[0-9]{10}$/,"Contact Number is required","Contact Number is not valid","#contact-number ~ .error-message");
+    validateInput(PINCode,/^[0-9]{6}$/,"PIN Code is required","PIN Code is not valid","#pin-code ~ .error-message");
+    validateInput(cardNumber,/^[0-9]{16}$/,"Card Number is required","Card Number is not valid","#card-number ~ .error-message");
+    validateInput(cardExpiry,/^[0-9]{4}$/,"Card Expiry is required","Card Expiry is not valid","#card-expiry ~ .error-message");
 
-    // checking if the contact number is empty
-    if(contactNumber.value.trim()==""){
-        errorMessage = "Contact Number is required";
-        document.querySelector("#contact-number ~ .error-message").innerHTML = errorMessage;
-        contactNumber.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[0-9]{10}$/).test(contactNumber.value)==false){
-        errorMessage = "Contact Number is not valid";
-        document.querySelector("#contact-number ~ .error-message").innerHTML = errorMessage;
-        contactNumber.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else{
-        document.querySelector("#contact-number ~ .error-message").innerHTML = "";
-        contactNumber.style.borderColor = "#CCCCCC";
-    }
-
-    // checking if the pin code is empty
-    if(PINCode.value.trim()==""){
-        errorMessage = "PIN Code is required";
-        document.querySelector("#pin-code ~ .error-message").innerHTML = errorMessage;
-        PINCode.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[0-9]{6}$/).test(PINCode.value)==false){
-        errorMessage = "PIN Code is not valid";
-        document.querySelector("#pin-code ~ .error-message").innerHTML = errorMessage;
-        PINCode.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else{
-        document.querySelector("#pin-code ~ .error-message").innerHTML = "";
-        PINCode.style.borderColor = "#CCCCCC";
-    }
-
-    // checking if the card number is empty
-    if(cardNumber.value.trim()==""){
-        errorMessage = "Card Number is required";
-        document.querySelector("#card-number ~ .error-message").innerHTML = errorMessage;
-        cardNumber.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[0-9]{16}$/).test(cardNumber.value)==false){
-        errorMessage = "Card Number is not valid";
-        document.querySelector("#card-number ~ .error-message").innerHTML = errorMessage;
-        cardNumber.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else{
-        document.querySelector("#card-number ~ .error-message").innerHTML = "";
-        cardNumber.style.borderColor = "#CCCCCC";
-    }
-
-    // checking if the card expiry is empty
-    if(cardExpiry.value.trim()==""){
-        errorMessage = "Card Expiry is required";
-        document.querySelector("#card-expiry ~ .error-message").innerHTML = errorMessage;
-        cardExpiry.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[0-9]{4}$/).test(cardExpiry.value)==false || parseInt(cardExpiry.value)<2023){
+    if(parseInt(cardExpiry.value)<2023){
         errorMessage = "Card Expiry is not valid";
         document.querySelector("#card-expiry ~ .error-message").innerHTML = errorMessage;
         cardExpiry.style.borderColor = "#A80000";
         isValid = false;
     }
-    else{
-        document.querySelector("#card-expiry ~ .error-message").innerHTML = "";
-        cardExpiry.style.borderColor = "#CCCCCC";
-    }
-    
-    // checking if the card cvv is empty
-    if(cvv.value.trim()==""){
-        errorMessage = "CVV is required";
-        document.querySelector("#cvv-number ~ .error-message").innerHTML = errorMessage;
-        cvv.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else if((/^[0-9]{3,4}$/).test(cvv.value)==false){
-        errorMessage = "CVV is not valid";
-        document.querySelector("#cvv-number ~ .error-message").innerHTML = errorMessage;
-        cvv.style.borderColor = "#A80000";
-        isValid = false;
-    }
-    else{
-        document.querySelector("#cvv-number ~ .error-message").innerHTML = "";
-        cvv.style.borderColor = "#CCCCCC";
-    }
 
-    return false;
+    validateInput(cvv,/^[0-9]{3,4}$/,"CVV is required","CVV is not valid","#cvv-number ~ .error-message");
+
+    return isValid;
 }
