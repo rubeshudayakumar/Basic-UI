@@ -127,7 +127,7 @@ function validate(){
         cardExpiry.style.borderColor = "#A80000";
         isValid = false;
     }
-    else if(parseInt(cardExpiry.value)<2023){
+    else if((/^[0-9]{4}$/).test(cardExpiry.value)==false || parseInt(cardExpiry.value)<2023){
         errorMessage = "Card Expiry is not valid";
         document.querySelector("#card-expiry ~ .error-message").innerHTML = errorMessage;
         cardExpiry.style.borderColor = "#A80000";
