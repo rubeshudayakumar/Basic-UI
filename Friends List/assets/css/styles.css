@@ -36,8 +36,8 @@
     display: flex;
     align-items: center;
     height: 105px;
-    width: calc(97%/3);
-    margin: 0 calc(3%/6);
+    width: calc((100% - 60px) / 3);
+    margin: 0 10px;
     background-color: #4d67b4;
 }
 .friends-list-item-container img{
