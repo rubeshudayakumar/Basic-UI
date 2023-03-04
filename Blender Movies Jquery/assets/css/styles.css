@@ -83,6 +83,11 @@ h3{
     line-height: 1.7;
     font-weight: 200;
 }
+#video-loading{
+    margin: 50px calc(100% - 60%);
+    height: 100px;
+    width: 100px;
+}
 
 /* styles for profile section */
 .poster-section{
@@ -99,6 +104,11 @@ h3{
 }
 .comments-section h2{
    margin: 20px 0;
+}
+#poster-loading{
+    margin: calc(100% - 60%);
+    width: 100px;
+    height: 100px;
 }
 /* styles for comment section */
 .comments-section{
