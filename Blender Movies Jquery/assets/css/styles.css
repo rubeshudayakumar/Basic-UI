@@ -173,7 +173,7 @@ h3{
     cursor: pointer;
 }
 
-
+/* styles for devices under 767px */
 @media (max-width: 767px) {
     .profile-section h5{
         display: none;
@@ -227,6 +227,7 @@ h3{
     }
 }
 
+/* styles for devices under 432px */
 @media (max-width: 432px) {
     .movie-container{
         height: 3100px;
