@@ -46,6 +46,8 @@ body{
     }
 }
 
+
+
 // buttons section in the header
 .delete-btn{
     @extend .button-border;
@@ -57,6 +59,28 @@ body{
     @extend .button-border;
     background-color: $new-edit-btn-color;
     cursor: pointer;
+}
+.delete-all-confirm-btn{
+    @extend .button-border;
+    @extend .new-btn;
+}
+
+
+// styles for empty notes 
+.empty-notes{
+    position: absolute;
+    left: calc((100% - 250px)/2);
+    top: 200px;
+    img{
+        width: 250px;
+        height: 250px;
+    }
+    h2{
+        margin-left: -5px;
+        font-weight: 400;
+        text-align: center;
+        color: $empty-notes-color;
+    }
 }
 
 // pocket notes section
@@ -102,6 +126,7 @@ body{
         font-size: 14px;
         line-height: 1.7;
     }
+    
 }
 
 // styles for new note section
@@ -114,25 +139,6 @@ body{
     background-color: $body-color;
     transition: right 2s;
     overflow: scroll;
-
-    // styles for close section
-    .close-section{
-        margin: 45px;
-        padding: 20px;
-        @include display-flex($justify-content-value: space-between);
-        font-weight: 300;
-        color: white;
-        background-color: $header-bg-color;
-        button{
-            background-color: inherit;
-            border: none;
-            color: inherit;
-            font-size: 16px;
-            font-weight: 300;
-            cursor: pointer;
-        }
-    }
-
     // form section input styling
     .form-section{
         margin: 45px;
@@ -213,6 +219,51 @@ body{
         }
     }
 }
+// styles for close section
+.close-section{
+    margin: 45px;
+    padding: 20px;
+    @include display-flex($justify-content-value: space-between);
+    font-weight: 300;
+    color: white;
+    background-color: $header-bg-color;
+    button{
+        background-color: inherit;
+        border: none;
+        color: inherit;
+        font-size: 16px;
+        font-weight: 300;
+        cursor: pointer;
+    }
+}
+
+// close section for the delete all div
+.delete-all-confirm-container-close-window{
+    @extend .close-section;
+    width: 95%;
+    margin: 0 14px;
+}
+.delete-all-confirm-container{
+    position: fixed;
+    left: calc((100% - 34%) / 2);
+    top: calc(100vh /2.5);
+    padding: 14px 0;
+    @include display-flex(
+        $direction-value: column,
+        $justify-content-value: center,
+        $align-items-value: center,
+        $row-gap: 16px,
+    );
+    z-index: 1;
+    background-color: $body-color;
+    width: 34%;
+    p{
+        color: $header-txt-color;
+    }
+    display: none;
+}
+
+
 *:focus{
     outline: none;
 }

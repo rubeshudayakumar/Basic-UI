@@ -17,7 +17,7 @@ body {
   background-color: #000;
 }
 
-.button-border, .new-btn, .new-note-section .choose-color-section .add-btn, .delete-btn {
+.button-border, .delete-all-confirm-btn, .new-btn, .new-note-section .choose-color-section .add-btn, .delete-btn {
   padding: 12px 34px;
   border: none;
   border-radius: 50px;
@@ -54,9 +54,25 @@ body {
   cursor: pointer;
 }
 
-.new-btn, .new-note-section .choose-color-section .add-btn {
+.new-btn, .new-note-section .choose-color-section .add-btn, .delete-all-confirm-btn {
   background-color: #B355B7;
   cursor: pointer;
+}
+
+.empty-notes {
+  position: absolute;
+  left: calc((100% - 250px) / 2);
+  top: 200px;
+}
+.empty-notes img {
+  width: 250px;
+  height: 250px;
+}
+.empty-notes h2 {
+  margin-left: -5px;
+  font-weight: 400;
+  text-align: center;
+  color: #B2B2B2;
 }
 
 .pocket-notes-container {
@@ -115,27 +131,6 @@ body {
   background-color: #000;
   transition: right 2s;
   overflow: scroll;
-}
-.new-note-section .close-section {
-  margin: 45px;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: start;
-  row-gap: 0px;
-  font-weight: 300;
-  color: white;
-  background-color: #041D2E;
-}
-.new-note-section .close-section button {
-  background-color: inherit;
-  border: none;
-  color: inherit;
-  font-size: 16px;
-  font-weight: 300;
-  cursor: pointer;
 }
 .new-note-section .form-section {
   margin: 45px;
@@ -222,6 +217,53 @@ body {
   border-top: none;
   border-right: none;
   transform: rotate(-45deg);
+}
+
+.close-section, .delete-all-confirm-container-close-window {
+  margin: 45px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  row-gap: 0px;
+  font-weight: 300;
+  color: white;
+  background-color: #041D2E;
+}
+.close-section button, .delete-all-confirm-container-close-window button {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.delete-all-confirm-container-close-window {
+  width: 95%;
+  margin: 0 14px;
+}
+
+.delete-all-confirm-container {
+  position: fixed;
+  left: 33%;
+  top: 40vh;
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+  z-index: 1;
+  background-color: #000;
+  width: 34%;
+  display: none;
+}
+.delete-all-confirm-container p {
+  color: #fff;
 }
 
 *:focus {
