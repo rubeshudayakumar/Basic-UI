@@ -9,6 +9,30 @@ $(document).ready(function () {
         skin: "#FFA78C",
     };
 
+    var initialCount = 0;
+
+    function appendTenNodes(){
+        for(var i=0;i<10;i++) {
+            if(initialCount%10 != 0 || initialCount==0){
+                appendNoteToDom(notes[initialCount]);
+                initialCount++;
+                if(initialCount==notes.length){
+                    $(".load-more").css("display","none");
+                    break;
+                }
+            }
+            else{
+                appendNoteToDom(notes[initialCount]);
+                break;
+            }
+         };
+    }
+
+    $(".load-more").click((e) => {
+        initialCount++;
+        appendTenNodes();
+    });
+
     // getting the previous notes from the local storage
     var notes = JSON.parse(localStorage.getItem("notes"));
 
@@ -16,13 +40,12 @@ $(document).ready(function () {
         // display the ... notes you add appear heres
         $(".empty-notes").css("display","block");
         $(".delete-btn").css("display","none");
+        $(".load-more").css("display","none");
     }
     else{
         $(".empty-notes").css("display","none");
         // appending all the notes to the dom 
-        notes.forEach(element => {
-           appendNoteToDom(element);
-        });
+        appendTenNodes();
    
     }
 
@@ -151,7 +174,9 @@ $(document).ready(function () {
             //  if there is a list
             var notes = JSON.parse(localStorage.getItem("notes"));
             notes.push(note);
-
+            if(notes.length>10){
+                $(".load-more").css("display","inline-block");
+            }
             // updating it to the local storage
             localStorage.setItem("notes",JSON.stringify(notes));
         }

@@ -17,7 +17,7 @@ body {
   background-color: #000;
 }
 
-.button-border, .delete-all-confirm-btn, .new-btn, .new-note-section .choose-color-section .add-btn, .delete-btn {
+.button-border, .delete-all-confirm-btn, .new-btn, .new-note-section .choose-color-section .add-btn, .load-more, .delete-btn {
   padding: 12px 34px;
   border: none;
   border-radius: 50px;
@@ -54,9 +54,14 @@ body {
   cursor: pointer;
 }
 
-.new-btn, .new-note-section .choose-color-section .add-btn, .delete-all-confirm-btn {
+.new-btn, .new-note-section .choose-color-section .add-btn, .load-more, .delete-all-confirm-btn {
   background-color: #B355B7;
   cursor: pointer;
+}
+
+.load-more {
+  margin: 0 45%;
+  margin-bottom: 50px;
 }
 
 .empty-notes {
