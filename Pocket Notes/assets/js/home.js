@@ -54,6 +54,7 @@ $(document).ready(function () {
          let notesContainer = document.createElement("div");
          notesContainer.className = "note-container";
          notesContainer.style.backgroundColor = colors[element.color];
+         notesContainer.id = element.id;
 
          // creating title 
          let title = document.createElement("h3");
@@ -80,6 +81,16 @@ $(document).ready(function () {
         //  appending the content to the container and pushing everything to the dom
          notesContainer.appendChild(content);
          $(".pocket-notes-container").prepend(notesContainer);
+
+        //  notesContainer.addEventListener("click",(e) => {
+        //     console.log(e.target);
+
+        //  });
+         $(`#${element.id}`).click((e)=>{
+            
+            var noteId = e.target.closest('.note-container').outerHTML.split("id")[1].split("style")[0].substring(2,).slice(0,-2);
+            console.log(noteId);
+         });
 
     }
 
@@ -154,6 +165,7 @@ $(document).ready(function () {
         }else {
             note.url = $(".url").val();
         }
+        note.id = Math.random().toString().substring(2);
 
         // extracting the date from the current date
         note.date = date.toString().slice(4,10)+","+date.toString().slice(11,15);
