@@ -1,0 +1,84 @@
+@import "mixins";
+@import "variables";
+
+// styles for buttons
+.delete-note-btn{
+    @extend .delete-btn;
+}
+.edit-btn{
+    @extend .new-btn;
+}
+.save-btn{
+    @extend .add-btn;
+}
+
+// styles for confirm note delete
+.delete-note-confirm-container{
+    @extend .delete-all-confirm-container !optional;
+}
+.delete-note-confirm-container-close-window{
+    @extend .delete-all-confirm-container-close-window !optional;
+}
+.delete-note-confirm-btn{
+    @extend .delete-all-confirm-btn;
+}
+
+// styles for leave note edit 
+.delete-note-leave-container{
+    @extend .delete-all-confirm-container !optional;
+}
+.delete-note-leave-container-close-window{
+    @extend .delete-all-confirm-container-close-window !optional;
+}
+.delete-note-leave-btn{
+    @extend .delete-all-confirm-btn;
+    align-self: center;
+}
+
+i{
+    font-size: 32px;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+// styles for notes detail section
+.notes-detail-container{
+    @include display-flex();
+    margin: 0 auto;
+    margin-top: 150px;
+    width: 57%;
+    padding: 35px;
+    .note-color{
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+    }
+    .note-details{
+        padding-left: 24px;
+        color: $header-txt-color;
+        h3{
+            font-size: 28px;
+        }
+        h5{
+            margin-top: 5px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 200;
+        }
+        img{
+            margin: 16px 0;
+            width: 844px;
+            height: 380px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+        p{
+            width: 844px;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+    }
+}
+
+

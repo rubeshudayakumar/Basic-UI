@@ -9,25 +9,31 @@ $(document).ready(function () {
         skin: "#FFA78C",
     };
 
+    // initial load count
     var initialCount = 0;
 
+    // loading the notes 10 nu by 10
     function appendTenNodes(){
         for(var i=0;i<10;i++) {
+            // if the count is 10 we stop here and wait until load more clicked
             if(initialCount%10 != 0 || initialCount==0){
                 appendNoteToDom(notes[initialCount]);
                 initialCount++;
                 if(initialCount==notes.length){
+                    // we hide the load more button if we display all the notes
                     $(".load-more").css("display","none");
                     break;
                 }
             }
             else{
+                // appending it to the dom if it is not a number divisible by 10
                 appendNoteToDom(notes[initialCount]);
                 break;
             }
          };
     }
 
+    // on click load more button invoke append 10 nodes function is called
     $(".load-more").click((e) => {
         initialCount++;
         appendTenNodes();
@@ -82,14 +88,19 @@ $(document).ready(function () {
          notesContainer.appendChild(content);
          $(".pocket-notes-container").prepend(notesContainer);
 
-        //  notesContainer.addEventListener("click",(e) => {
-        //     console.log(e.target);
 
-        //  });
+        //  getting the element id on clicking of the parent
          $(`#${element.id}`).click((e)=>{
             
+            // extracting the clicked note id with the help of the split and slice function
             var noteId = e.target.closest('.note-container').outerHTML.split("id")[1].split("style")[0].substring(2,).slice(0,-2);
-            console.log(noteId);
+
+            // setting the note id to the session storage
+            sessionStorage.setItem("noteid",noteId);
+
+            // redirecting the page
+            window.location.href = "note-detail.html";
+
          });
 
     }
@@ -145,12 +156,28 @@ $(document).ready(function () {
             localStorage.setItem("noteTheme",selectedShape);
             e.stopPropagation();
         });
+
+        $(".new-note-container").click((e)=>{
+            closeModel();
+        });
+
     });
 
     // function for closing the modal
     function closeModel(){
-        $(".new-note-section").css("right",-($(".new-note-section").width()));
-        $(".new-note-container").css("display","none");
+
+        if($(".title").val().trim()!="" || $(".url").val().trim()!="" || $(".content").val().trim()!=""){
+            $(".delete-note-leave-container").css("display","flex");
+            $(".delete-note-leave-btn").click((e) => {
+                $(".new-note-section").css("right",-($(".new-note-section").width()));
+                $(".new-note-container").css("display","none");
+                $(".delete-note-leave-container").css("display","none");
+            });
+        }else{
+            $(".new-note-section").css("right",-($(".new-note-section").width()));
+            $(".new-note-container").css("display","none");
+        }
+        
     }
 
     // adding event listener for the add note button
@@ -197,7 +224,8 @@ $(document).ready(function () {
         appendNoteToDom(note);
 
         // closing the modal
-        closeModel();
+        $(".new-note-section").css("right",-($(".new-note-section").width()));
+        $(".new-note-container").css("display","none");
 
         // erase all inputs
         $(".content").val("");

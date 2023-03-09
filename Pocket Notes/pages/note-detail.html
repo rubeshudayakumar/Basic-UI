@@ -7,6 +7,7 @@
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <script src="https://kit.fontawesome.com/d95ab1ac46.js"></script>
         <!-- START : IMPORTING LATO FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,32 +21,29 @@
 
         <!-- START : HEADER SECTION -->
         <header class="pocket-notes-header">
-            <h1>Pocket<span> Notes</span></h1>
+            <div class="pocket-logo">
+                <i class="fa-sharp fa-solid fa-arrow-left"></i>
+                <h1>Pocket<span> Notes</span></h1>
+            </div>
             <section class="buttons-section">
-                <button class="delete-btn">DELETE ALL</button>
-                <button class="new-btn">NEW</button>
+                <button class="delete-note-btn">DELETE</button>
+                <button class="edit-btn">EDIT</button>
             </section>
         </header>
         <!-- END : HEADER SECTION -->
 
-        <div class="empty-notes">
-            <img src="../assets/images/3dBox.png" alt="3dbox image" />
-            <h2>Notes you add appear here</h2>
-        </div>
-
         <!-- START : POCKET NOTES SECTION -->
-        <main class="pocket-notes-container">
-            <!-- <div class="note-container">
-                <h3>Summer Time - A Long Short Story</h3>
-                <h5>Mar 11,2022</h5>
-                <img src="https://cdn.dribbble.com/users/59947/screenshots/8954934/media/158f64a559119eb78bd8cf5b33a92b18.jpg?compress=1&resize=1600x1200&vertical=top" alt="note image" />
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil officiis molestiae fugit tenetur quaerat sapiente corrupti qui iure maiores? Vel dolor rem odit iste vitae repellendus, perferendis rerum voluptates itaque.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil officiis molestiae fugit tenetur quaerat sapiente corrupti qui iure maiores? Vel dolor rem odit iste vitae repellendus, perferendis rerum voluptates itaque.
-                </p>
-            </div> -->
+        <main class="notes-detail-container">
+            <div class="note-color">
+            </div>
+            <section class="note-details">
+                <h3></h3>
+                <h5></h5>
+                <div></div>
+                <p></p>
+            </section>
         </main>
-
+        
         <section class="delete-note-leave-container">
             <div class="delete-note-leave-container-close-window">
                 <h4>CONFIRM</h4>
@@ -55,16 +53,30 @@
             <button class="delete-note-leave-btn">YES, CLOSE</button>
         </section>
 
-        <!-- START : DELETE CONFIRMATION -->
-        <section class="delete-all-confirm-container">
-            <div class="delete-all-confirm-container-close-window">
-                <h4>DELETE ALL NOTES</h4>
+
+        <!-- START : DELETE NOTE CONFIRMATION -->
+        <section class="delete-note-confirm-container">
+            <div class="delete-note-confirm-container-close-window">
+                <h4>DELETE NOTE</h4>
                 <button>X</button>
             </div>
-            <p>Are you sure you want to delete all notes?</p>
-            <button class="delete-all-confirm-btn">YES, DELETE</button>
+            <p>Are you sure you want to delete this note?</p>
+            <button class="delete-note-confirm-btn">YES, DELETE</button>
         </section>
-        <!-- END : DELETE CONFIRMATION -->
+        <!-- END : DELETE NOTE CONFIRMATION -->
+
+        <!-- START : LEAVE EDIT NOTE CONFIRMATION -->
+        <section class="delete-note-leave-container">
+            <div class="delete-note-leave-container-close-window">
+                <h4>CONFIRM</h4>
+                <button>X</button>
+            </div>
+            <p>Seems like you are in the middle of the adding/editing.Do you want to leave?</p>
+            <button class="delete-note-leave-btn">YES, CLOSE</button>
+        </section>
+        <!-- END : LEAVE EDIT NOTE CONFIRMATION -->
+
+
 
         <!-- START : NEW NOTE SECTION -->
         <section class="new-note-container">
@@ -72,7 +84,7 @@
 
         <div class="new-note-section">
             <div class="close-section">
-                <h4>NEW NOTE</h4>
+                <h4>EDIT NOTE</h4>
                 <button>X</button>
             </div>
 
@@ -91,13 +103,11 @@
                     <div class="color green"></div>
                     <div class="color skin"></div>
                 </div>
-                <button class="add-btn">ADD</button>
+                <button class="save-btn">save</button>
             </section>
 
             <!-- END : NOTE INPUT FORM SECTION -->
         </div>
-
-        <button class="load-more">LOAD MORE</button>
        
         <!-- END : NEW NOTE SECTION -->
 
@@ -105,7 +115,7 @@
 
         <!-- START : IMPORTING SCRIPTS -->
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-        <script src="../assets/js/home.js"></script>
+        <script src="../assets/js/note-detail.js"></script>
         <!-- END : IMPORTING SCRIPTS -->
     </body>
 </html>
