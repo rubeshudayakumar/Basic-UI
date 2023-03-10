@@ -141,6 +141,7 @@ body{
 }
 .state,.city,.phone-no{
     font-weight: 400;
+    color: #000000d4;
 }
 .state{
     width: 20%;
