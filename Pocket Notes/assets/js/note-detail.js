@@ -29,6 +29,7 @@ $(document).ready(function () {
         $(".note-details h5").text(notesList[currentNoteIndex].date);
         $(".note-details p").text(notesList[currentNoteIndex].content);
 
+        // checking if the note has an image attribute
         if(notesList[currentNoteIndex].url!="" && $("img").length==0){
             var image = document.createElement("img");
             image.src = notesList[currentNoteIndex].url;
@@ -40,12 +41,13 @@ $(document).ready(function () {
     // calling the above function 
     getFromLocalStorage();
 
+    // adding click event for the back page to home
     $("i").click((e) => {
         window.location.href = "home.html";
     });
 
-   
 
+    // to set the initial color 
     let isEditButtonClicked = false;
     $(".edit-btn").click(function (e) {
 
@@ -60,11 +62,10 @@ $(document).ready(function () {
             isEditButtonClicked = true;
         }
         
+        // mouse leave listener for input section
         $(".new-note-section").mouseleave(function () { 
             closeModel();
         });
-
-        
 
         // displaying the modal form on clicking the new button
         $(".new-note-section").css("right",0);
@@ -100,7 +101,8 @@ $(document).ready(function () {
         $(".title").val(notesList[currentNoteIndex].title);
         $(".url").val(notesList[currentNoteIndex].url);
         $(".content").val(notesList[currentNoteIndex].content);
-
+        
+        // pushing the edited note to the top after editing it
         function arraymove(arr, fromIndex, toIndex) {
             var element = arr[fromIndex];
             arr.splice(fromIndex, 1);
@@ -109,11 +111,15 @@ $(document).ready(function () {
 
         // adding event listener for the event listeners
         $(".save-btn").click((e) => {
+            // removing the previous errors and styles for errors
             $(".form-section span").text("");
             $(".title").css("border","none");
+
+            // form validation
             if($(".title").val().length ==0 || $(".content").val().length==0){
                 $(".form-section span").text("Title and content should not be empty.");
                 return;
+            // checking if the title is greater than 100 and showing the error
             }else if($(".title").val().length>100){
                     $(".title").css("border","1px solid #fff")
                     $(".form-section span").text("Title should not exceed 100 words");
@@ -126,42 +132,50 @@ $(document).ready(function () {
             notesList[currentNoteIndex].content = $(".content").val();
             notesList[currentNoteIndex].color = localStorage.getItem("noteTheme");
             var date = Date();
+
+            // extracting the date value 
             notesList[currentNoteIndex].date = date.toString().slice(4,10)+","+date.toString().slice(11,15);
-
             arraymove(notesList,currentNoteIndex,0);
-
             localStorage.setItem("notes",JSON.stringify(notesList));
             
             getFromLocalStorage();
 
+            // moving the form after the save action is completed
             $(".new-note-section").css("right",-($(".new-note-section").width()));
             $(".new-note-container").css("display","none");
-            
 
         });
 
+        // close model when clicked outside 
         $(".new-note-container").click((e)=>{
             closeModel();
         });
 
     });
 
+    // handling the edit note btn click
     $(".delete-note-btn").click((e) => {
+
+        // showing the modal
         $(".delete-note-confirm-container").css("display","flex");
         $(".new-note-container").css("display","block");
 
+        // closing the model when the close button is clicked
         $(".delete-note-confirm-close-window").click((e) => {
             $(".new-note-container").css("display","none");
             $(".delete-note-confirm-container").css("display","none");
         });
 
+        // closing the modal with the confirmation of the delete from the user
         $(".delete-note-confirm-btn").click((e)=>{
+            // delete the element from the dom
             notesList.splice(currentNoteIndex,1);
             localStorage.setItem("notes",JSON.stringify(notesList));
             window.location.href = "home.html";
             $(".delete-note-confirm-container").css("display","none");
             $(".new-note-container").css("display","none");
         });
+        // closing the model only
         $(".delete-note-confirm-container-close-window").click((e) => {
             $(".delete-note-confirm-container").css("display","none");
             $(".new-note-container").css("display","none");
