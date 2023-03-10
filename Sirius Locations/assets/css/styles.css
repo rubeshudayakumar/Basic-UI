@@ -49,8 +49,8 @@ body{
     height: 37px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 0.8em;
+    font-weight: 500;
     cursor: pointer;
     background-color: black;
     color: white;
@@ -86,10 +86,26 @@ body{
     height: 100%;
 }
 .solutions-section div{
+    position: relative;
+    top: -8px;
     height: 123px;
     font-size: 12px;
     border: 1px solid #808EB9;
     margin-top: -2px;
+}
+.solutions-section h3{
+    
+    border:  1px solid #808EB9;
+}
+#accordion h3{
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 0;
+    font-weight: 500;
+    padding: 10px 8px;
+}
+#accordion div{
+    border-radius: 0;
 }
 
 /* styles for location section */
@@ -115,6 +131,7 @@ body{
     flex-direction: column;
     row-gap: 10px;
     padding: 20px;
+    background-color: #fff;
     overflow: scroll;
 } 
 .locations-container img{
@@ -122,13 +139,18 @@ body{
     margin-left: 10px;
     border-radius: 50%;
 }
-.state,.city{
-    width: 30%;
+.state,.city,.phone-no{
+    font-weight: 400;
+}
+.state{
+    width: 20%;
+}
+.city{
+    width: 31%;
 }
 .phone-no{
     margin-right: 15px;
 }
-
 
 /* style to control the visibility of the section with respect to the selected tab */
 .tab-display-control{

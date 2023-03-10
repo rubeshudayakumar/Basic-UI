@@ -30,39 +30,26 @@ $(document).ready(function () {
 
 
     for(var i=0;i<locations.length;i++){
-      var container =   document.createElement("div");
-      $(".locations-section").append(container);
-      container.classList.add("locations-container");
 
-      // creating alternative container for the given data 
+      var $container;
+
+      // creating the container
       if(i%2==0){
-        container.classList.add("grey-container");
+        $container = $("<div>");
+        $(".locations-section").append($($container).addClass("locations-container grey-container"));
+      }else{
+        $container = $("<div>")
+        $(".locations-section").append($($container).addClass("locations-container pink-container")); 
       }
-      else{
-        container.classList.add("pink-container");
-      }
+      
+      // creating the image
+      var $img = $("<img>").attr("src","./assets/images/flag.png")
 
-      // inserting the image
-      var img = document.createElement("img");
-      img.src = "./assets/images/flag.png";
-      container.appendChild(img);
-
-      // inserting the state data
-      var state = document.createElement("div");
-      state.innerHTML = locations[i].state;
-      state.classList.add("state");
-      container.appendChild(state);
-
-      // inserting the city data
-      var city = document.createElement("div");
-      city.innerHTML = locations[i].city;
-      city.classList.add("city");
-      container.appendChild(city);
-
-      var phoneNo = document.createElement("div");
-      phoneNo.innerHTML = locations[i].contact;
-      phoneNo.classList.add("phone-no");
-      container.appendChild(phoneNo);
+      //appending the values
+      $container.append($img);
+      $container.append($("<div>").addClass("state").text(locations[i].state));
+      $container.append($("<div>").addClass("city").text(locations[i].city));
+      $container.append($("<div>").addClass("phone-no").text(locations[i].contact));
 
     }
 
