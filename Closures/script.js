@@ -82,8 +82,6 @@ function enterPinAndAccountNumber(){
     cardNo = window.prompt("Enter the card number");
     pinNo = window.prompt("Enter the pin number");
 
-    
-
     // performing operations based on the options given by the user
     if(choosedOption==1){
         withDrawFromATM(cardNo,pinNo);
