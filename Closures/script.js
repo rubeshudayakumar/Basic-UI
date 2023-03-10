@@ -46,7 +46,7 @@ function enterPinAndAccountNumber(){
     // with drawfunction to with draw the amount
     function withDrawFromATM(cardNo,pinNo){
         var selectedIndex = validate(cardNo,pinNo);
-        if(selectedIndex!=false){
+        if(selectedIndex!==false){
             var amount =  window.prompt("Enter the amount to withdraw : ");
             accountDetails[selectedIndex].accountBalance-=amount;
             alert("Balance amount : "+accountDetails[selectedIndex].accountBalance);
@@ -56,10 +56,17 @@ function enterPinAndAccountNumber(){
         }
     }
 
+    // exploration of the closure
+
+    var testFunction = () => {
+       return accountDetails;
+    }
+
+
     // deposit function to deposit the amount
     function depositToCDM(cardNo,pinNo){
         var selectedIndex = validate(cardNo,pinNo);
-        if(selectedIndex!=false){
+        if(selectedIndex!==false){
             var amount = window.prompt("Enter the amount to deposit : ");
             accountDetails[selectedIndex].accountBalance+=parseInt(amount);
             alert("Balance amount : "+accountDetails[selectedIndex].accountBalance);
@@ -83,7 +90,12 @@ function enterPinAndAccountNumber(){
     }else{
         depositToCDM(cardNo,pinNo);
     }
+
+    return testFunction;
 }
 
 // calling the function
-enterPinAndAccountNumber();
+ var testFunctionOne = enterPinAndAccountNumber();
+
+//  testing code 
+ console.log(testFunctionOne());
