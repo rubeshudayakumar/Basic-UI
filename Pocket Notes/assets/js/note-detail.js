@@ -44,8 +44,13 @@ $(document).ready(function () {
         window.location.href = "home.html";
     });
 
+   
+
     let isEditButtonClicked = false;
     $(".edit-btn").click(function (e) {
+
+        $(".form-section span").text("");
+        $(".title").css("border","none");
 
         // creating the tick mark
         let tick = document.createElement("div");
@@ -54,6 +59,11 @@ $(document).ready(function () {
             $(`${colors[notesList[currentNoteIndex].color]}`).append(tick);
             isEditButtonClicked = true;
         }
+        
+        $(".new-note-section").mouseleave(function () { 
+            closeModel();
+        });
+
         
 
         // displaying the modal form on clicking the new button
@@ -71,9 +81,6 @@ $(document).ready(function () {
 
             // preventing the duplicate ticks on the shape
             let selectedShape = $(this).attr("class").split(" ")[1];
-            if(selectedShape==localStorage.getItem("noteTheme")){
-                return;
-            }
 
             $(".color").html("");
 
@@ -102,6 +109,18 @@ $(document).ready(function () {
 
         // adding event listener for the event listeners
         $(".save-btn").click((e) => {
+            $(".form-section span").text("");
+            $(".title").css("border","none");
+            if($(".title").val().length ==0 || $(".content").val().length==0){
+                $(".form-section span").text("Title and content should not be empty.");
+                return;
+            }else if($(".title").val().length>100){
+                    $(".title").css("border","1px solid #fff")
+                    $(".form-section span").text("Title should not exceed 100 words");
+                    return;
+            }
+
+            // updating contents to the variables and updating it to the local storage
             notesList[currentNoteIndex].title = $(".title").val();
             notesList[currentNoteIndex].url = $(".url").val();
             notesList[currentNoteIndex].content = $(".content").val();
@@ -109,7 +128,7 @@ $(document).ready(function () {
             var date = Date();
             notesList[currentNoteIndex].date = date.toString().slice(4,10)+","+date.toString().slice(11,15);
 
-            arraymove(notesList,currentNoteIndex,notesList.length-1);
+            arraymove(notesList,currentNoteIndex,0);
 
             localStorage.setItem("notes",JSON.stringify(notesList));
             
@@ -164,6 +183,7 @@ $(document).ready(function () {
             });
         }else{
             $(".new-note-section").css("right",-($(".new-note-section").width()));
+            $(".new-note-section").off("mouseleave");
             $(".new-note-container").css("display","none");
         }
     }

@@ -86,7 +86,15 @@ $(document).ready(function () {
 
         //  appending the content to the container and pushing everything to the dom
          notesContainer.appendChild(content);
-         $(".pocket-notes-container").prepend(notesContainer);
+
+         if(initialCount==notes.length){
+            $(".pocket-notes-container").prepend(notesContainer);
+         }
+         else{
+            $(".pocket-notes-container").append(notesContainer);
+         }
+
+         
 
 
         //  getting the element id on clicking of the parent
@@ -110,6 +118,10 @@ $(document).ready(function () {
     let isNewButtonClicked = false;
     $(".new-btn").click(function (e) { 
 
+        $(".add-btn").css("opacity","0.5");
+        $(".title").css("border","none");
+        $(".form-section span").text("");
+
         // creating the tick mark
         let tick = document.createElement("div");
         tick.className = "tick";
@@ -129,9 +141,15 @@ $(document).ready(function () {
             }
         }
 
+        $(".new-note-section").mouseleave(function () { 
+            closeModel();
+        });
+
         // displaying the modal form on clicking the new button
         $(".new-note-section").css("right",0);
         $(".new-note-container").css("display","block");
+
+        
 
        
 
@@ -172,16 +190,54 @@ $(document).ready(function () {
                 $(".new-note-section").css("right",-($(".new-note-section").width()));
                 $(".new-note-container").css("display","none");
                 $(".delete-note-leave-container").css("display","none");
+                // erase all inputs
+            });
+            $(".delete-note-leave-container-close-window").click((e) => {
+                $(".delete-note-leave-container").css("display","none");
             });
         }else{
+            $(".content").val("");
+            $(".title").val("");
+            $(".url").val("");
             $(".new-note-section").css("right",-($(".new-note-section").width()));
+            $(".new-note-section").off("mouseleave");
             $(".new-note-container").css("display","none");
         }
         
     }
 
+    var isTitleKeyedIn = false;
+    var isContentKeyedIn = false;
+
+    $(".title").keypress(function (e) { 
+        isTitleKeyedIn = true;
+        if(isTitleKeyedIn == true && isContentKeyedIn ==true){
+            $(".add-btn").css("opacity","1");
+        }
+    });
+
+    $(".content").keypress(function (e){
+        isContentKeyedIn = true;
+        if(isTitleKeyedIn == true && isContentKeyedIn == true){
+            $(".add-btn").css("opacity","1");
+        }
+    });
+
     // adding event listener for the add note button
     $(".add-btn").click(function (e){
+        $(".title").css("border","none");
+        $(".form-section span").text("");
+        if($(".title").val().length>100){
+            $(".title").css("border","1px solid #fff")
+            $(".form-section span").text("Title should not exceed 100 words");
+            return;
+        }else if($(".content").val().length==0 || $(".title").val().length==0){
+            $(".form-section span").text("There should be some content");
+            return;
+        }
+        else{
+            $(".add-btn").css("opacity","1");
+        }
 
         // constructing the note object 
         let note = {};
@@ -204,7 +260,7 @@ $(document).ready(function () {
         // checking the the local storage is null else creating the new attribute
         if(localStorage.getItem("notes")==null){
             var notes = [];
-            notes.push(note);
+            notes.unshift(note);
             localStorage.setItem("notes",JSON.stringify(notes));
             $(".empty-notes").css("display","none");
             $(".delete-btn").css("display","inline-block");
@@ -212,7 +268,7 @@ $(document).ready(function () {
         else{
             //  if there is a list
             var notes = JSON.parse(localStorage.getItem("notes"));
-            notes.push(note);
+            notes.unshift(note);
             if(notes.length>10){
                 $(".load-more").css("display","inline-block");
             }
@@ -254,6 +310,7 @@ $(document).ready(function () {
         // adding the event listner for the close modal 
         $(".delete-all-confirm-container-close-window").click((e) => {
             closeDeleteAllModal();
+            
         });
 
         // adding the event listener for the delete all button
@@ -261,8 +318,13 @@ $(document).ready(function () {
             localStorage.removeItem("notes");
             $(".pocket-notes-container").html("");
             $(".empty-notes").css("display","block");
+            $(".content").val("");
+            $(".title").val("");
+            $(".url").val("");
             closeDeleteAllModal();
             $(".delete-btn").css("display","none");
+            
+
         });
 
     });
