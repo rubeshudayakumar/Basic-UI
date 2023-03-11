@@ -124,10 +124,17 @@ body{
         height: 157px;
         border-radius: 16px;
     }
-    p{
+     p{
         color: $note-text-color;
         font-size: 14px;
         line-height: 1.7;
+        width: 100%;
+        height: 80%;
+        overflow: hidden;
+    }
+    img ~ p {
+        height: 33%;
+        overflow: hidden;
     }
     
 }
@@ -140,7 +147,7 @@ body{
     width: 35%;
     height: 100vh;
     background-color: $body-color;
-    transition: right 2s;
+    transition: right 1s;
     overflow: scroll;
     // form section input styling
     .form-section{
@@ -312,6 +319,7 @@ body{
 }
 @media  screen and (max-width: 1024px) {
     .pocket-notes-container{
+        margin-left: 10%;
         .note-container{
             width: 46%;
             margin: calc((100% - (2*46%))/4);
@@ -324,6 +332,7 @@ body{
 }
 @media screen and (max-width: 425px) {
     .pocket-notes-container{
+        margin-left: 21%;
         .note-container{
             width: 100%;
             margin: 16px;

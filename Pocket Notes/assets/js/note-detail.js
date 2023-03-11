@@ -18,8 +18,11 @@ $(document).ready(function () {
     // getting the index of the note from the available local storage
     function getFromLocalStorage(){
         notesList = JSON.parse(localStorage.getItem("notes"));
-        let currentNoteIndex = notesList.findIndex(x => x.id == currentNoteId);
-        
+        notesList.forEach((element,index) => {
+            if(element.id == currentNoteId){
+                currentNoteIndex = index;
+            }
+        });
         // adding the data from the session storage
         $(".note-color").css("background-color",colors[notesList[currentNoteIndex].color]);
         $(".note-details h3").text(notesList[currentNoteIndex].title);
@@ -60,9 +63,9 @@ $(document).ready(function () {
         }
         
         // mouse leave listener for input section
-        $(".new-note-section").mouseleave(function () { 
-            closeModel();
-        });
+        // $(".new-note-section").mouseleave(function () { 
+        //     closeModel();
+        // });
 
         // displaying the modal form on clicking the new button
         $(".new-note-section").css("right",0);
@@ -124,6 +127,9 @@ $(document).ready(function () {
             // updating contents to the variables and updating it to the local storage
             notesList[currentNoteIndex].title = $(".title").val();
             notesList[currentNoteIndex].url = $(".url").val();
+            if($(".url").val().trim().length==0){
+                $("img").remove();
+            }
             notesList[currentNoteIndex].content = $(".content").val();
             notesList[currentNoteIndex].color = localStorage.getItem("noteTheme");
             var date = Date();

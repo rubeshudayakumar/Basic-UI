@@ -64,14 +64,14 @@ $(document).ready(function () {
 
          // creating Date 
          $notesContainer.append($("<h5>").text(element.date));
-
-         // adding the content 
-         $notesContainer.append($("p").text(element.content));
-
+         
          // adding the image url 
          if(element.url != ""){
-            $notesContainer.append($("img").attr("src",element.url));
+            $notesContainer.append($("<img>").attr("src",element.url));
          }
+
+          // adding the content 
+          $notesContainer.append($("<p>").text(element.content));
 
          if(initialCount==notes.length || option==true){
             $(".pocket-notes-container").prepend($notesContainer);
@@ -124,9 +124,9 @@ $(document).ready(function () {
             }
         }
 
-        $(".new-note-section").mouseleave(function () { 
-            closeModel();
-        });
+        // $(".new-note-section").mouseleave(function () { 
+        //     closeModel();
+        // });
 
         // displaying the modal form on clicking the new button
         $(".new-note-section").css("right",0);
