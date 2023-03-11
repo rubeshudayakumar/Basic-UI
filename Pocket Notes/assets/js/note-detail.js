@@ -18,11 +18,8 @@ $(document).ready(function () {
     // getting the index of the note from the available local storage
     function getFromLocalStorage(){
         notesList = JSON.parse(localStorage.getItem("notes"));
-        notesList.forEach((element,index) => {
-            if(element.id == currentNoteId){
-                currentNoteIndex = index;
-            }
-        });
+        let currentNoteIndex = notesList.findIndex(x => x.id == currentNoteId);
+        
         // adding the data from the session storage
         $(".note-color").css("background-color",colors[notesList[currentNoteIndex].color]);
         $(".note-details h3").text(notesList[currentNoteIndex].title);
@@ -87,8 +84,6 @@ $(document).ready(function () {
 
             // appending the tick on the seleted color div
             $(this).append(tick);
-
-
 
             // storing it to the local storage
             localStorage.setItem("noteTheme",selectedShape);

@@ -17,7 +17,7 @@ $(document).ready(function () {
         for(var i=0;i<10;i++) {
             // if the count is 10 we stop here and wait until load more clicked
             if(initialCount%10 != 0 || initialCount==0){
-                appendNoteToDom(notes[initialCount]);
+                appendNoteToDom(notes[initialCount],false);
                 initialCount++;
                 if(initialCount==notes.length){
                     // we hide the load more button if we display all the notes
@@ -27,7 +27,7 @@ $(document).ready(function () {
             }
             else{
                 // appending it to the dom if it is not a number divisible by 10
-                appendNoteToDom(notes[initialCount]);
+                appendNoteToDom(notes[initialCount],false);
                 break;
             }
          };
@@ -55,47 +55,30 @@ $(document).ready(function () {
    
     }
 
-    function appendNoteToDom(element){
+    function appendNoteToDom(element,option){
          // creating the note container
-         let notesContainer = document.createElement("div");
-         notesContainer.className = "note-container";
-         notesContainer.style.backgroundColor = colors[element.color];
-         notesContainer.id = element.id;
+         $notesContainer = $("<div>").addClass("note-container").css("background-color",colors[element.color]).attr("id",element.id);
 
          // creating title 
-         let title = document.createElement("h3");
-         title.innerText = element.title;
+         $notesContainer.append($("<h3>").text(element.title));
 
          // creating Date 
-         let date = document.createElement("h5");
-         date.innerText = element.date;
+         $notesContainer.append($("<h5>").text(element.date));
 
          // adding the content 
-         let content = document.createElement("p");
-         content.innerText = element.content;
-
-         notesContainer.appendChild(title);
-         notesContainer.appendChild(date);
+         $notesContainer.append($("p").text(element.content));
 
          // adding the image url 
          if(element.url != ""){
-             let img = document.createElement("img");
-             img.src = element.url;
-             notesContainer.appendChild(img);
+            $notesContainer.append($("img").attr("src",element.url));
          }
 
-        //  appending the content to the container and pushing everything to the dom
-         notesContainer.appendChild(content);
-
-         if(initialCount==notes.length){
-            $(".pocket-notes-container").prepend(notesContainer);
+         if(initialCount==notes.length || option==true){
+            $(".pocket-notes-container").prepend($notesContainer);
          }
          else{
-            $(".pocket-notes-container").append(notesContainer);
+            $(".pocket-notes-container").append($notesContainer);
          }
-
-         
-
 
         //  getting the element id on clicking of the parent
          $(`#${element.id}`).click((e)=>{
@@ -277,7 +260,7 @@ $(document).ready(function () {
         }
 
         // appending it to the dom 
-        appendNoteToDom(note);
+        appendNoteToDom(note,true);
 
         // closing the modal
         $(".new-note-section").css("right",-($(".new-note-section").width()));
