@@ -81,12 +81,14 @@ $(document).ready(function () {
         $(".color").click(function (e){
 
             // preventing the duplicate ticks on the shape
-            let selectedShape = $(this).attr("class").split(" ")[1];
+            
 
             $(".color").html("");
 
             // appending the tick on the seleted color div
             $(this).append(tick);
+
+            let selectedShape = $(this).attr("class").split(" ")[1];
 
             // storing it to the local storage
             localStorage.setItem("noteTheme",selectedShape);
